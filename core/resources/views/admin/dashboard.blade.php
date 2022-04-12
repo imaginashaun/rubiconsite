@@ -33,6 +33,146 @@
     @endif
 
     <div class="row mb-none-30">
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$widget['total_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Journalist')</span>
+                    </div>
+                    <a href="{{route('admin.users.all')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$widget['verified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Verified Journalist')</span>
+                    </div>
+                    <a href="{{route('admin.users.active')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="la la-envelope"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$widget['email_unverified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Email Unverified Journalist')</span>
+                    </div>
+
+                    <a href="{{route('admin.users.emailUnverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$widget['sms_unverified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total SMS Unverified Journalist')</span>
+                    </div>
+
+                    <a href="{{route('admin.users.smsUnverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
+
+         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--dark b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$member['total_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Member')</span>
+                    </div>
+
+                    <a href="{{route('admin.member.users.all')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
+
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--purple b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$member['verified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Verified Member')</span>
+                    </div>
+
+                    <a href="{{route('admin.member.users.active')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--teal b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$member['email_unverified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total Email  Unverified Member')</span>
+                    </div>
+
+                    <a href="{{route('admin.member.users.emailUnverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
+
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div class="dashboard-w1 bg--green b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$member['sms_unverified_users']}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('Total SMS Unverified Member')</span>
+                    </div>
+
+                    <a href="{{route('admin.member.users.smsUnverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
 
 
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
@@ -166,7 +306,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Monthly Payment Report')</h5>
+                    <h5 class="card-title">@lang('Monthly  Deposit & Withdraw  Report')</h5>
                     <div id="apex-bar-chart"> </div>
                 </div>
             </div>
@@ -349,7 +489,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('30 Day Payment History')</h5>
+                    <h5 class="card-title">@lang('Last 30 days Withdraw History')</h5>
                     <div id="withdraw-line"></div>
                 </div>
             </div>

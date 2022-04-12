@@ -22,21 +22,21 @@
                  <li class="sidebar-menu-item ">
                     <a href="{{route('admin.category.index')}}" class="{{menuActive('admin.category*',3)}}">
                         <i class="menu-icon las la-list-alt"></i>
-                        <span class="menu-title">@lang('Categories')</span>
+                        <span class="menu-title">@lang('All Category')</span>
                     </a>
                 </li>
 
                  <li class="sidebar-menu-item ">
                     <a href="{{route('admin.service.index')}}" class="{{menuActive('admin.service*',3)}}">
                         <i class="menu-icon las la-bars"></i>
-                        <span class="menu-title">@lang('Services')</span>
+                        <span class="menu-title">@lang('All Service')</span>
                     </a>
                 </li>
 
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.users*',3)}}">
                         <i class="menu-icon las la-user-alt"></i>
-                        <span class="menu-title">@lang('Journalists')</span>
+                        <span class="menu-title">@lang('Journalist')</span>
 
                         @if($banned_users_count > 0 || $email_unverified_users_count > 0 || $sms_unverified_users_count > 0)
                             <span class="menu-badge pill bg--primary ml-auto">
@@ -105,7 +105,7 @@
                 </li>
 
 
-<!--
+
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.member.user*',3)}}">
                         <i class="menu-icon las la-users"></i>
@@ -175,7 +175,7 @@
                         </ul>
                     </div>
                 </li>
--->
+
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.journalist.booking*',3)}}">
                         <i class="menu-icon las la-arrows-alt"></i>
