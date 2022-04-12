@@ -2,6 +2,8 @@
      data-background="{{getImage('assets/admin/images/sidebar/2.jpg','400x800')}}">
     <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
     <div class="sidebar__inner">
+
+
         <div class="sidebar__logo">
             <a href="{{route('admin.dashboard')}}" class="sidebar__main-logo"><img
                     src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('image')"></a>
@@ -36,7 +38,7 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.users*',3)}}">
                         <i class="menu-icon las la-user-alt"></i>
-                        <span class="menu-title">@lang('Journalist')</span>
+                        <span class="menu-title">@lang('Journalists')</span>
 
                         @if($banned_users_count > 0 || $email_unverified_users_count > 0 || $sms_unverified_users_count > 0)
                             <span class="menu-badge pill bg--primary ml-auto">
@@ -105,7 +107,7 @@
                 </li>
 
 
-
+                @if(auth()->guard('admin')->user()->id == 1)
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.member.user*',3)}}">
                         <i class="menu-icon las la-users"></i>
@@ -175,7 +177,7 @@
                         </ul>
                     </div>
                 </li>
-
+                @endif
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.journalist.booking*',3)}}">
                         <i class="menu-icon las la-arrows-alt"></i>
@@ -348,6 +350,8 @@
                 </li>
 
 
+
+                @if(auth()->guard('admin')->user()->id == 1)
 
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.gateway*',3)}}">
@@ -700,6 +704,8 @@
                         </ul>
                     </div>
                 </li>
+
+                @endif
             </ul>
         </div>
     </div>
