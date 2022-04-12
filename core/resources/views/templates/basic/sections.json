@@ -1,0 +1,268 @@
+{
+    "hero": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Hero Section",
+        "content": {
+            "images":{
+                "hero_background_image":{
+                    "size":"1920x1445",
+                    "thumb":"100x100"
+                }
+            },
+            "heading": "text",
+            "sub_heading": "text"
+        }
+    },
+
+    "breadcrumb": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Breadcrumb Section",
+        "content": {
+            "images":{
+                "image":{
+                    "size":"1280x853",
+                    "thumb":"100x100"
+                }
+            }
+        }
+    },
+
+    "about": {
+        "builder": true,
+        "name": "About Us",
+        "content": {
+            "images":{
+                "about_image":{
+                    "size":"1280x853",
+                    "thumb":"100x100"
+                }
+            },
+            "text" : "text",
+            "image_number" : "text",
+            "heading": "text",
+            "description": "textarea-nic"
+        }
+       
+    },
+
+
+    "counter": {
+        "builder": true,
+        "name": "Counter Section",
+        "element": {
+            "title": "text",
+            "digits": "text",
+            "icon": "icon",
+            "modal": true
+        }
+    },
+
+    "choose_us": {
+        "builder": true,
+        "name": "Choose Us Section",
+        "content": {
+            "heading": "text",
+            "sub_heading": "text"
+        },
+        "element": {
+            "choose_icon": "icon",
+            "title": "text",
+            "description": "textarea",
+            "modal": true
+        }
+    },
+    
+    "journalist": {
+        "builder": true,
+        "name": "Journalist Section",
+        "content": {
+            "heading": "text",
+            "sub_heading": "text"
+        }
+    },
+    
+    "how_it_work": {
+        "builder": true,
+        "name": "How it Work Member",
+        "content": {
+            "heading": "text",
+            "sub_heading": "text"
+        },
+        "element": {
+            "work_icon": "icon",
+            "title": "text",
+            "description": "textarea",
+            "modal": true
+        }
+    },
+
+    "how_it_work_journalist": {
+        "builder": true,
+        "no_selection":true,
+        "name": "How it Work Journalist",
+        "element": {
+            "work_icon": "icon",
+            "title": "text",
+            "description": "textarea",
+            "modal": true
+        }
+    },
+
+    "testimonial": {
+        "builder": true,
+        "name": "Testimonial Section",
+        "content": {
+            "images":{
+                "background_image":{
+                    "size":"1920x1445",
+                    "thumb":"100x100"
+                }
+            }  
+        },
+        "element": {
+            "images":{
+                "testimonial_image":{
+                    "size":"300x253",
+                    "thumb":"100x100"
+                    }
+                },
+            "Name": "text",
+            "designation": "text",
+            "testimonial": "textarea",
+            "modal": true
+        }
+    },
+
+    "client": {
+        "builder": true,
+        "name": "Client Section",
+        "content": {
+            "heading": "text",
+            "sub_heading": "text"
+        },
+        "element": {
+            "images":{
+                "client_image":{
+                    "size":"260x160",
+                    "thumb":"100x100"
+                }
+            },
+            "modal": true
+        }
+    },
+
+    "hire": {
+        "builder": true,
+        "name": "Hire Section",
+        "content": {
+            "images":{
+                "background_image":{
+                    "size":"1280x853",
+                    "thumb":"100x100"
+                }
+            },
+            "video_link": "text",
+            "heading": "text",
+            "sub_heading": "text"
+        }
+    },
+
+    "contact_us": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Contact Us",
+        "content": {
+          "images":{
+                "background_image":{
+                    "size":"1280x853",
+                    "thumb":"100x100"
+                },
+                "image":{
+                    "size":"1280x853",
+                    "thumb":"100x100"
+                }
+            },
+            "title": "text",
+            "short_details": "text",
+            "email_address": "text",
+            "contact_details": "text",
+            "contact_number": "text",
+            "contact_address" : "text",
+            "latitude" : "text",
+            "longitude" : "text"
+        }
+    },
+
+    "social_icon":{
+        "builder":true,
+        "no_selection":true,
+        "name":"Social Icons",
+        "element":{
+            "icon":"icon",
+            "url":"text",
+            "modal":true
+        }
+   },
+
+    "footer":{
+        "builder":true,
+        "no_selection":true,
+        "name":"Footer Section",
+        "element":{
+            "menu_name":"text",
+            "description":"textarea-nic",
+            "modal":false
+        }
+    },
+
+    "registration_type": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Registration Type",
+        "content": {
+          "images":{
+                "member_background_image":{
+                  "size":"1280x853",
+                  "thumb":"100x100"
+                },
+                "journalist_background_image":{
+                  "size":"1280x853",
+                  "thumb":"4000x4000"
+                }
+            },
+            "member_heading": "text",
+            "member_sub_heading": "text",
+            "member_btn_name": "text",
+            "journalist_heading": "text",
+            "journalist_sub_heading": "text",
+            "journalist_btn_heading": "text"
+        }
+    },
+
+
+    "login": {
+        "builder": true,
+        "name": "Login Section",
+        "content": {
+            "heading": "text"
+        }
+    },
+
+    "member_register": {
+        "builder": true,
+        "name": "Member Register Page",
+        "content": {
+            "heading": "text"
+        }
+    },
+
+    "journalist_register": {
+        "builder": true,
+        "name": "Journalist Register",
+        "content": {
+            "heading": "text"
+        }
+    }
+}
