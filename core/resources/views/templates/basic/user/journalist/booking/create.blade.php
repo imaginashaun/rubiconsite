@@ -2,9 +2,7 @@
 @section('content')
     @include($activeTemplate . 'partials.breadcrumb')
 
-    <?php
-    $services=\App\Service::all();
-    ?>
+
 
     <section class="pt-120 pb-120">
         <div class="container">
@@ -33,11 +31,16 @@
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <label for="service_id">@lang('Service Type')</label>
-                                    <select id="service_id" name="service_id">
+                                    <select id="service_id" name="service_id" required>
                                         <option value="">--Select--</option>
-{{--                                        @foreach ($services as $service)--}}
-{{--                                            <option></option>--}}
-{{--                                        @foreach--}}
+
+                                        <?php
+                                        for($i=0;$i<count($services);$i++){
+                                        echo "<option value=".$services[$i]->id.">".$services[$i]->name."</option>";
+
+                                        }
+
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-lg-12 form-group">

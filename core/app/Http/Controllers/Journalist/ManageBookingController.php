@@ -32,15 +32,15 @@ class ManageBookingController extends Controller
     {
         $user = Auth::user();
         $page_title = "Post Booking";
-        $service=Service::all();
-        return view($this->activeTemplate . 'user.journalist.booking.create', compact('page_title'));
+        $services=Service::all();
+        return view($this->activeTemplate . 'user.journalist.booking.create', ['page_title'=>$page_title,'services'=>$services]);
     }
     public function StoreBooking
     (Request $request)
     {
         $gnl= GeneralSetting::first();
         $request->validate([
-//'service_id' => 'required|exists:services,id',
+'service_id' => 'required|exists:services,id',
             'budget' => 'required|numeric|min:1',
             'delivery_date' => 'required|date|date_format:Y-m-d|after:yesterday',
             'description' => 'required|max:5000',
@@ -48,7 +48,7 @@ class ManageBookingController extends Controller
         $booking=new Booking;
         $booking->member_id=1;
         $booking->user_id=Auth::user()->id;
-        $booking->service_id=1;
+        $booking->service_id=$request->service_id;
         $booking->description=$request->description;
         $booking->delivery_date=$request->delivery_date;
         $booking->budget=$request->budget;
