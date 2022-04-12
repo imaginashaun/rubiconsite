@@ -5,6 +5,7 @@ use App\Deposit;
 use App\Gateway;
 use App\GeneralSetting;
 use App\Http\Controllers\Controller;
+use App\Service;
 use App\SupportTicket;
 use App\Transaction;
 use App\User;
@@ -29,6 +30,56 @@ class ManageUsersController extends Controller
         $empty_message = 'No Journalist found';
         $users = User::where('user_type', 'journalist')->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
+    }
+
+
+    public function StoreBooking
+    (Request $request)
+    {
+        $gnl= GeneralSetting::first();
+        $user = auth()->guard('admin')->user();
+        $request->validate([
+            'service_id' => 'required|exists:services,id',
+            'budget' => 'required|numeric|min:1',
+            'delivery_date' => 'required|date|date_format:Y-m-d|after:yesterday',
+            'description' => 'required|max:5000',
+        ]);
+//        if($user->balance < $request->budget)
+//        {
+//            $notify[] = ['error', 'Your Account '. getAmount($user->balance) .' Balance Not Enough! Please Deposit Money'];
+//            return back()->withNotify($notify);
+//        }
+
+
+        $booking=new Booking;
+        $booking->member_id=$user->id;
+        $booking->service_id=$request->service_id;
+        $booking->description=$request->description;
+        $booking->delivery_date=$request->delivery_date;
+        $booking->budget=$request->budget;
+        $booking->order_number = getTrx();
+
+        $booking->working_status = 0;
+        $booking->status = 1;
+        $booking->save();
+        $notify[] = ['success', 'Booking has been added'];
+
+//        $transaction = new Transaction();
+//        $transaction->user_id = $booking->member_id;
+//        $transaction->amount = $booking->budget;
+//        $transaction->post_balance = $user->balance;
+//        $transaction->trx_type = '-';
+//        $transaction->trx = getTrx();
+//        $transaction->details = "Payment For journalist Booking";
+//        $transaction->save();
+
+//        notify($user, 'BOOKING_PAYMENT', [
+//            'order_number' => $booking->order_number,
+//            'amount' => getAmount($booking->budget),
+//            'currency' => $gnl->cur_text,
+//        ]);
+        return redirect()->back()->withNotify($notify);
+
     }
 
     public function account($id)
@@ -228,7 +279,7 @@ class ManageUsersController extends Controller
             $user->balance = bcsub($user->balance, $amount, 8);
             $user->save();
 
-         
+
 
             $transaction = new Transaction();
             $transaction->user_id = $user->id;

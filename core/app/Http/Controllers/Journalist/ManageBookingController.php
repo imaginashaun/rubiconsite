@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Journalist;
 
 use App\Http\Controllers\Controller;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Booking;
 use App\Transaction;
@@ -27,6 +28,40 @@ class ManageBookingController extends Controller
         $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->with('member')->latest()->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.booking.index', compact('page_title', 'empty_message', 'booking'));
     }
+    public function create()
+    {
+        $user = Auth::user();
+        $page_title = "Post Booking";
+        $service=Service::all();
+        return view($this->activeTemplate . 'user.journalist.booking.create', compact('page_title'));
+    }
+    public function StoreBooking
+    (Request $request)
+    {
+        $gnl= GeneralSetting::first();
+        $request->validate([
+//'service_id' => 'required|exists:services,id',
+            'budget' => 'required|numeric|min:1',
+            'delivery_date' => 'required|date|date_format:Y-m-d|after:yesterday',
+            'description' => 'required|max:5000',
+        ]);
+        $booking=new Booking;
+        $booking->member_id=1;
+        $booking->user_id=Auth::user()->id;
+        $booking->service_id=1;
+        $booking->description=$request->description;
+        $booking->delivery_date=$request->delivery_date;
+        $booking->budget=$request->budget;
+        $booking->order_number = getTrx();
+        $booking->working_status = 0;
+        $booking->status = 0;
+        $booking->save();
+        $notify[] = ['success', 'Booking request has been added'];
+
+        return redirect()->to('user/journalist/booking/pending/list')->withNotify($notify);
+
+    }
+
 
     public function pending()
     {
@@ -102,7 +137,7 @@ class ManageBookingController extends Controller
         $member = User::findOrFail($booking->member_id);
         $member->balance += $booking->budget;
         $member->update();
-        
+
         $transaction = new Transaction();
         $transaction->user_id = $booking->member_id;
         $transaction->amount = $booking->budget;
@@ -111,7 +146,7 @@ class ManageBookingController extends Controller
         $transaction->trx = getTrx();
         $transaction->details = "Balance Refund For This Booking Number " . $booking->order_number;
         $transaction->save();
-        
+
         notify($member, 'REFUND_MONEY', [
             'order_number' => $booking->order_number,
             'amount' => getAmount($booking->budget),

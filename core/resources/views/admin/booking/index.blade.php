@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 @section('panel')
+
+    <?php
+    $services=\App\Service::all();
+$members=\App\User::all();
+    ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
@@ -27,7 +32,11 @@
                                   <a href="{{ route('admin.member.users.detail', $booking->member_id) }}">{{ $booking->member->username }}</a>
                                 </td>
                                 <td data-label="@lang('Journalist')">
+
+                                    @if($booking->user_id)
                                   <a href="{{ route('admin.users.detail', $booking->user_id) }}">{{ $booking->journalist->username }}</a>
+
+                                        @endif
                                 </td>
                                 <td data-label="@lang('Booking Number')">{{$booking->order_number}}</td>
                                 <td data-label="@lang('Budget')">{{getAmount($booking->budget)}} {{$general->cur_text }}</td>
@@ -69,9 +78,12 @@
                                </td>
 
                                 <td data-label="@lang('Action')">
+                                    @if($booking->user_id)
                                     <a href="{{route('admin.booking.detail', $booking->id)}}" class="icon-btn btn--primary" data-toggle="tooltip" title="" data-original-title="Details">
                                       <i class="las la-desktop text--shadow"></i>
                                     </a>
+
+                                        @endif
                                 </td>
                             </tr>
                             @empty
@@ -112,6 +124,12 @@
 @endsection
 
 @push('breadcrumb-plugins')
+
+    <a href="javascript:void(0)" class="btn btn-sm btn--primary box--shadow1 text--small addBtn"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+<br />
+    <br />
+
+
     <form action="{{route('admin.booking.search', $scope ?? str_replace('admin.booking.', '', request()->route()->getName())) }}" method="GET" class="form-inline float-sm-right bg--white">
         <div class="input-group has_append">
             <input type="text" name="search" class="form-control" placeholder="Member / Journalist / Booking Number ..." value="{{ $search ?? '' }}">
@@ -122,6 +140,76 @@
     </form>
 @endpush
 
+<div id="addModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@lang('Add A Booking')</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.users.booking.store')}}" method="POST">
+                @csrf
+                <div class="modal-body">
+{{--                    <div class="form-group">--}}
+{{--                        <label for="name" class="form-control-label font-weight-bold">@lang('Member') <span class="text-danger">*</span></label>--}}
+
+{{--                        <select class="form-control" required name="member_id">--}}
+{{--                            <option>--select--</option>--}}
+{{--                            @foreach($members  as $member)--}}
+{{--                                <option value="{{$member->id}}">{{$member->firstname}} {{$member->lastname}}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+
+                    <div class="form-group">
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Service') <span class="text-danger">*</span></label>
+
+<select class="form-control" required name="service_id">
+    <option>--select--</option>
+    @foreach($services as $service)
+        <option value="{{$service->id}}">{{$service->name}}</option>
+    @endforeach
+</select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-control-label font-weight-bold">@lang('What is the Budget') ({{ __($general->cur_text) }}) <span class="text-danger">*</span></label>
+
+{{--                        <div class="input-group-prepend">--}}
+{{--                            <div class="input-group-text">{{ __($general->cur_text) }}</div>--}}
+{{--                        </div>--}}
+
+                        <input type="number" step=".1" min="1" class="form-control" id="name" maxlength="191" name="budget" value="{{old('budget')}}"required placeholder="@lang('Budget')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Delivery Date') <span class="text-danger">*</span></label>
+                        <input type="date" name="delivery_date" id="delivery_date" class="datepicker-here form-control" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ date('Y-m-d') }}" placeholder="@lang('Select Date')" autocomplete="off" required="">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Description') <span class="text-danger">*</span></label>
+
+                  <textarea name="description" required class="form-control">
+
+
+                  </textarea>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
+                    <button type="submit" class="btn btn--primary">@lang('Save')</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @push('script')
 <script>
     'use strict';
@@ -130,5 +218,42 @@
         modal.find('#dispute').text($(this).data('dispute_report'))
         modal.modal('show');
     })
+
+    $('.addBtn').on('click', function () {
+        var modal = $('#addModal');
+        modal.modal('show');
+    });
+
+    $('.updateBtn').on('click', function () {
+        var modal = $('#updateBtn');
+        modal.find('input[name=id]').val($(this).data('id'));
+        modal.find('input[name=name]').val($(this).data('name'));
+        modal.modal('show');
+    });
 </script>
+@endpush
+
+@push('style-lib')
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/datepicker.min.css') }}">
+@endpush
+@push('script-lib')
+    <script type="text/javascript" src="{{ asset('assets/admin/js/vendor/datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/js/vendor/datepicker.en.js') }}"></script>
+@endpush
+@push('script')
+    <script>
+        'use strict';
+        (function($){
+            $('.datepicker-here').datepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                autoApply: true,
+                minDate: new Date(),
+                autoClose: true,
+                locale: {
+                    format: 'YYYY-MM-DD'
+                }
+            })
+        })(jQuery)
+    </script>
 @endpush

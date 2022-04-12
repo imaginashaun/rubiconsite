@@ -8,17 +8,17 @@
     <div class="pt-120 pb-120">
       <div class="container">
         <div class="row justify-content-between mb-none-30">
-          <div class="col-lg-6 mb-30">
-            <div class="registration-card text-center">
-              <div class="registration-card__thumb">
-                <img src="{{ getImage('assets/images/frontend/registration_type/'. @$content->data_values->member_background_image,'1280x853')}}" alt="@lang('image')">
-              </div>
-              <div class="registration-card__content">
-                <h3 class="mb-2">{{ __($content->data_values->member_heading) }}</h3>
-                <p>{{ __($content->data_values->member_sub_heading) }}</p>
-                <a href="{{route('user.register.member')}}" class="cmn-btn mt-4">{{ __($content->data_values->member_btn_name)}}</a>
-              </div>
-            </div><!-- registration-card end -->
+          <div class="col-lg-3 mb-30">
+{{--            <div class="registration-card text-center">--}}
+{{--              <div class="registration-card__thumb">--}}
+{{--                <img src="{{ getImage('assets/images/frontend/registration_type/'. @$content->data_values->member_background_image,'1280x853')}}" alt="@lang('image')">--}}
+{{--              </div>--}}
+{{--              <div class="registration-card__content">--}}
+{{--                <h3 class="mb-2">{{ __($content->data_values->member_heading) }}</h3>--}}
+{{--                <p>{{ __($content->data_values->member_sub_heading) }}</p>--}}
+{{--                <a href="{{route('user.register.member')}}" class="cmn-btn mt-4">{{ __($content->data_values->member_btn_name)}}</a>--}}
+{{--              </div>--}}
+{{--            </div><!-- registration-card end -->--}}
           </div>
           <div class="col-lg-6 mb-30">
             <div class="registration-card text-center">
@@ -32,6 +32,8 @@
               </div>
             </div><!-- registration-card end -->
           </div>
+
+            <div class="col-lg-3 mb-30"></div>
         </div>
       </div>
     </div>

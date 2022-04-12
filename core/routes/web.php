@@ -120,7 +120,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('journalist/image/work/detail/{id}', 'WorkController@imageDetail')->name('work.image.detail');
         Route::post('journalist/image/approvedBy', 'WorkController@imageApprovedBy')->name('work.image.approvedBy');
         Route::post('journalist/image/delete', 'WorkController@imageDelete')->name('work.image.delete');
-        
+
 
         // Journalist Manager
         Route::get('journalist', 'ManageUsersController@allUsers')->name('users.all');
@@ -141,7 +141,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('journalist/transactions/{id}', 'ManageUsersController@transactions')->name('users.transactions');
         Route::get('journalist/withdrawals/{id}', 'ManageUsersController@withdrawals')->name('users.withdrawals');
          Route::get('user/withdrawals/via/{method}/{type?}/{userId}', 'ManageUsersController@withdrawalsViaMethod')->name('users.withdrawals.method');
-       
+
         // Login History
         Route::get('journalist/login/history/{id}', 'ManageUsersController@userLoginHistory')->name('users.login.history.single');
         Route::get('journalist/send-email', 'ManageUsersController@showEmailAllForm')->name('users.email.all');
@@ -156,6 +156,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('journalist/blog/{id}', 'ManageUsersController@blog')->name('users.blog');
 
         // Journalist Booking List
+        Route::post('journalist/booking/store', 'ManageUsersController@StoreBooking')->name('users.booking.store');
+
         Route::get('journalist/booking/pending/{id}', 'ManageUsersController@bookingPending')->name('users.booking.pending');
         Route::get('journalist/booking/complete/{id}', 'ManageUsersController@bookingComplete')->name('users.booking.complete');
         Route::get('journalist/booking/in-progress/{id}', 'ManageUsersController@bookingInprogress')->name('users.booking.inprogress');
@@ -402,10 +404,10 @@ Route::name('user.')->prefix('user')->group(function () {
             Route::post('message/store', 'MesssageController@messageStore')->name('message.store.list');
 
             Route::namespace('Member')->middleware('member')->name('member.')->prefix('member')->group(function () {
-                // Member Booking Controller 
+                // Member Booking Controller
                 Route::get('hire/{username}', 'BookingController@booking')->name('booking');
                 Route::post('hire/booking/store', 'BookingController@bookingStore')->name('booking.store');
-               
+
                 //Member Dashboard
                 Route::get('dashboard', 'MemberController@home')->name('home');
                 Route::get('transaction/history', 'MemberController@transaction')->name('transaction.log');
@@ -455,7 +457,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
             Route::namespace('Journalist')->middleware('journalist')->prefix('journalist')->group(function () {
 
-                //Story Controller 
+                //Story Controller
                 Route::post('delete/storie', 'StoriesController@storieDelete')->name('storie.delete');
                 Route::get('storie/index', 'StoriesController@index')->name('storie.index');
                 Route::get('storie/create', 'StoriesController@create')->name('storie.create');
@@ -494,6 +496,10 @@ Route::name('user.')->prefix('user')->group(function () {
                 Route::post('uploade/file', 'WorkFileController@workFile')->name('uploade.work');
                 Route::post('uploade/file/update', 'WorkFileController@workFileUpdate')->name('uploade.work.update');
                 // Booking
+
+                Route::get('booking/create', 'ManageBookingController@create')->name('journalist.booking.create');
+                Route::post('booking/store', 'ManageBookingController@StoreBooking')->name('booking.store');
+
                 Route::get('booking/list', 'ManageBookingController@index')->name('journalist.booking.list');
                 Route::get('booking/pending/list', 'ManageBookingController@pending')->name('journalist.booking.pending');
                 Route::get('booking/inprogress/list', 'ManageBookingController@inprogress')->name('journalist.booking.inprogress');
@@ -522,7 +528,7 @@ Route::name('user.')->prefix('user')->group(function () {
                 Route::post('profile/update/{user}', 'UserController@submitProfile')->name('update.profile');
                 Route::get('change-password', 'UserController@changePassword')->name('change-password');
                 Route::post('change-password', 'UserController@submitPassword');
-                
+
                  //2FA
                 Route::get('twofactor', 'UserController@show2faForm')->name('twofactor');
                 Route::post('twofactor/enable', 'UserController@create2fa')->name('twofactor.enable');

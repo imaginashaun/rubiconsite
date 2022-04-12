@@ -5,6 +5,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
+
+                <div class="text-right my-2">
+                    <a href="{{url('user/journalist/booking/create')}}" class="btn bg--6 text-white addVideoBtn"><i class="las la-plus"></i> @lang('Add Booking')</a>
+                </div>
                 <div class="card">
                     <div class="card-body table-responsive--lg p-0">
                         <table class="table style--two white-space-nowrap">
@@ -61,7 +65,7 @@
                                          <span class="badge text-white badge--deliverdlate">@lang('Delivery Expired')</span>
                                     @endif
                                </td>
-                                
+
                                <td data-label="@lang('Action')">
                                   <a href="{{ route('user.journalist.booking.details', $book->order_number)}}" class="icon-btn bg--2"><i class="las la-desktop text-white"></i></a>
                                   @if($book->working_status == 0)
@@ -70,7 +74,7 @@
                                   @elseif($book->working_status == 2 || $book->working_status == 3)
                                       <a href="#" class="icon-btn bg-dark workFile" data-order_number="{{ $book->order_number }}"><i class="las la-truck-loading text-white"></i></a>
                                   @endif
-                                 
+
                                </td>
                              </tr>
                            @empty
@@ -89,7 +93,7 @@
         </div>
     </section>
 
-        
+
 
 <div class="modal fade" id="approvedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
