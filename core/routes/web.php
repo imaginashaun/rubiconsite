@@ -192,6 +192,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('booking/list', 'BookingController@index')->name('booking.index');
         Route::get('booking/detail/{id}', 'BookingController@details')->name('booking.detail');
         Route::get('booking/pending/list', 'BookingController@pending')->name('booking.pending');
+
+        Route::get('booking/pending-requests/list', 'BookingController@pending_requests')->name('booking.pending_requests');
+
         Route::get('booking/complete/list', 'BookingController@complete')->name('booking.complete');
         Route::get('booking/in-progress/list', 'BookingController@inProgress')->name('booking.inprogress');
         Route::get('booking/delivered/list', 'BookingController@delivered')->name('booking.delivered');
@@ -502,6 +505,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
                 Route::get('booking/list', 'ManageBookingController@index')->name('journalist.booking.list');
                 Route::get('booking/pending/list', 'ManageBookingController@pending')->name('journalist.booking.pending');
+
                 Route::get('booking/inprogress/list', 'ManageBookingController@inprogress')->name('journalist.booking.inprogress');
                 Route::get('booking/delivered/list', 'ManageBookingController@delivered')->name('journalist.booking.delivered');
                 Route::get('booking/complete/list', 'ManageBookingController@complete')->name('journalist.booking.complete');

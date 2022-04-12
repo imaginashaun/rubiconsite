@@ -210,7 +210,12 @@
                                     <span class="menu-title">@lang('Pending')</span>
                                 </a>
                             </li>
-
+                            <li class="sidebar-menu-item {{menuActive('admin.booking.pending_requests')}} ">
+                                <a href="{{route('admin.booking.pending_requests')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Pending Requests')</span>
+                                </a>
+                            </li>
 
                             <li class="sidebar-menu-item {{menuActive('admin.booking.inprogress')}} ">
                                 <a href="{{route('admin.booking.inprogress')}}" class="nav-link">

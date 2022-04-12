@@ -37,6 +37,16 @@ class BookingController extends Controller
         return view('admin.booking.index', compact('page_title', 'empty_message', 'bookings'));
     }
 
+    public function pending_requests()
+    {
+        $page_title = "Journalist Pending Booking Requests List";
+        $empty_message = "No Data Found";
+        $bookings = Booking::where('status', 0)->latest()->with('member', 'journalist')->paginate(getPaginate());
+        return view('admin.booking.index', compact('page_title', 'empty_message', 'bookings'));
+    }
+
+
+
     public function complete()
     {
         $page_title = "Complete Booking List";
@@ -152,7 +162,7 @@ class BookingController extends Controller
         $user = User::findOrFail($booking->user_id);
         $user->balance += $amount;
         $user->update();
-        
+
         $transaction = new Transaction();
         $transaction->user_id = $booking->user_id;
         $transaction->amount = $amount;
@@ -162,7 +172,7 @@ class BookingController extends Controller
         $transaction->trx = getTrx();
         $transaction->details = "Balance Add For This Booking Number " . $booking->order_number;
         $transaction->save();
-        
+
         notify($user, 'SEND_MONEY', [
             'order_number' => $booking->order_number,
             'amount' => getAmount($booking->budget),
@@ -185,7 +195,7 @@ class BookingController extends Controller
         $user = User::findOrFail($booking->member_id);
         $user->balance += $booking->budget;
         $user->update();
-        
+
         $transaction = new Transaction();
         $transaction->user_id = $booking->member_id;
         $transaction->amount = $booking->budget;
@@ -194,7 +204,7 @@ class BookingController extends Controller
         $transaction->trx = getTrx();
         $transaction->details = "Balance Refund For This Booking Number " . $booking->order_number;
         $transaction->save();
-        
+
         notify($user, 'REFUND_MONEY', [
             'order_number' => $booking->order_number,
             'amount' => getAmount($booking->budget),
