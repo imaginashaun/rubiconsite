@@ -54,11 +54,11 @@ class ManageBookingController extends Controller
         $booking->budget=$request->budget;
         $booking->order_number = getTrx();
         $booking->working_status = 0;
-        $booking->status = 0;
+        $booking->status = 7;
         $booking->save();
         $notify[] = ['success', 'Booking request has been added'];
 
-        return redirect()->to('user/journalist/booking/pending/list')->withNotify($notify);
+        return redirect()->to('user/journalist/booking/my-pending/list')->withNotify($notify);
 
     }
 
@@ -68,10 +68,17 @@ class ManageBookingController extends Controller
         $user = Auth::user();
         $page_title = "Booking Pending List";
         $empty_message  = "No Data Found";
-        $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->where('working_status', 0)->latest()->with('member')->paginate(10);
+        $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->where('status', '!=', 7)->where('working_status', 0)->latest()->with('member')->paginate(10);
         return view($this->activeTemplate . 'user.journalist.booking.index', compact('page_title', 'empty_message', 'booking'));
     }
-
+    public function mypending()
+    {
+        $user = Auth::user();
+        $page_title = "My Booking Requests Pending List";
+        $empty_message  = "No Data Found";
+        $booking = Booking::where('user_id', $user->id)->where('status', '=', 7)->where('working_status', 0)->latest()->with('member')->paginate(10);
+        return view($this->activeTemplate . 'user.journalist.booking.requests', compact('page_title', 'empty_message', 'booking'));
+    }
     public function inprogress()
     {
         $user = Auth::user();

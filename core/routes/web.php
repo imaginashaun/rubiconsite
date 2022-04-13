@@ -505,6 +505,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
                 Route::get('booking/list', 'ManageBookingController@index')->name('journalist.booking.list');
                 Route::get('booking/pending/list', 'ManageBookingController@pending')->name('journalist.booking.pending');
+                Route::get('booking/my-pending/list', 'ManageBookingController@mypending')->name('journalist.booking.my_pending');
 
                 Route::get('booking/inprogress/list', 'ManageBookingController@inprogress')->name('journalist.booking.inprogress');
                 Route::get('booking/delivered/list', 'ManageBookingController@delivered')->name('journalist.booking.delivered');

@@ -37,7 +37,6 @@
                                         <?php
                                         for($i=0;$i<count($services);$i++){
                                         echo "<option value=".$services[$i]->id.">".$services[$i]->name."</option>";
-
                                         }
 
                                         ?>

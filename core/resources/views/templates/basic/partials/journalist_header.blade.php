@@ -15,6 +15,7 @@
                     <ul class="sub-menu">
                         <li><a href="{{ route('user.journalist.booking.list') }}">@lang('All Booking')</a></li>
                         <li><a href="{{ route('user.journalist.booking.pending') }}">@lang('Pending Booking')</a></li>
+                        <li><a href="{{ route('user.journalist.booking.my_pending') }}">@lang('My Pending Booking Requests')</a></li>
                         <li><a href="{{ route('user.journalist.booking.inprogress') }}">@lang('Inprogress Booking')</a></li>
                         <li><a href="{{ route('user.journalist.booking.delivered') }}">@lang('Delivered Booking')</a></li>
                         <li><a href="{{ route('user.journalist.booking.complete') }}">@lang('Complete Booking')</a></li>
