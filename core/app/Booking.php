@@ -6,13 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-   
+
     protected $guarded = ['id'];
     protected $table = 'bookings';
 
     public function member()
     {
         return $this->belongsTo("App\User", 'member_id', 'id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany("App\Comment", 'booking_id', 'id')->orderBy('id','desc');
     }
 
     public function journalist()

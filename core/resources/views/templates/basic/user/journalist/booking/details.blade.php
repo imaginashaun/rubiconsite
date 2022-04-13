@@ -24,7 +24,7 @@
                             @lang('Order Number')
                             <span>{{__($booking_details->order_number) }}</span>
                         </li>
-                        
+
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Working Status')
                              @if($booking_details->working_status == 0)
@@ -60,7 +60,7 @@
                                 <span class="badge text-white badge--inprogress">@lang('Refund')</span>
                             @endif
                         </li>
-                        
+
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Created Date')
                             <span>{{showDateTime($booking_details->created_at, 'd M Y') }}</span>
@@ -72,6 +72,38 @@
                     </ul>
                      <div class="card-title my-4"><h6>@lang('Description')</h6></div>
                      <div class="card-text">@php echo $booking_details->description @endphp</div>
+                    @if(count($booking_details->comments)>0)
+                        <h4>Work Delivery Comments</h4>
+                         <div class="card-body table-responsive--lg p-0">
+                         <table class="table style--two white-space-nowrap">
+                             <thead>
+                             <tr>
+                                 <th scope="col">@lang('ID')</th>
+                                 <th scope="col">@lang('Comment')</th>
+                                 <th scope="col">@lang('Sender')</th>
+                                 <th scope="col">@lang('Date')</th>
+                             </tr>
+                             </thead>
+                             <tbody>
+                             @forelse ($booking_details->comments as  $comment)
+                                 <tr>
+                                     <td>{{$comment->id}}</td>
+
+
+
+                                     <td>{{$comment->comment}}</td><td>{{$comment->sender}}</td><td>{{$comment->created_at}}</td>
+                                 </tr>
+                             @empty
+                                 <tr>
+                                     <td class="text-muted text-center" colspan="100%">No comments</td>
+                                 </tr>
+                             @endforelse
+
+                             </tbody>
+                         </table>
+                     </div>
+                     @endif
+
                   </div>
                </div><!-- card end -->
              </div>

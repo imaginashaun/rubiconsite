@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Journalist;
 
+use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Service;
 use Illuminate\Http\Request;
@@ -61,6 +62,20 @@ class ManageBookingController extends Controller
         return redirect()->to('user/journalist/booking/my-pending/list')->withNotify($notify);
 
     }
+    public function StoreComment(Request $request){
+        dd($request);
+        $comment=new Comment();
+
+        $b=Booking::where('order_number',$request->order_number)->first();
+        $comment->comment=$request->comment;
+        $comment->booking_id=$b->id;
+        $comment->sender='journalist';
+        $comment->save();
+        $notify[] = ['success', 'Comment has been added'];
+        return redirect()->back()->withNotify($notify);
+
+    }
+
 
 
     public function pending()

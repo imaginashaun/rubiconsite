@@ -117,7 +117,7 @@
                                 <button class="icon-btn btn--danger dispute_report" data-dispute_report ="{{ $booking->dispute_report}}" data-toggle="tooltip" title="" data-original-title="Report">@lang('Report')</button>
                              @elseif($booking->working_status ==  6)
                                  <span class="font-weight-normal badge--warning">@lang('Delivery Expired')</span>
-                             
+
                              @endif
                          </li>
 
@@ -162,7 +162,46 @@
                             <p>@lang('Work File No Delivery')</p>
                         </div>
                       @endforelse
-                  </div>
+                 @if(count($booking->workDelivery)>0)
+                        <div class="col-md-12 text-center">
+                        <button  class="btn btn--success btn-sm m-2 text-center commentBtn">@lang('Add Comment')</button>
+                    </div>
+
+                    <h4>Comments</h4>
+                        <div class="table-responsive--md  table-responsive">
+                            <table class="table table--light style--two">
+                                <thead>
+                                <tr>
+                                    <th scope="col">@lang('ID')</th>
+                                    <th scope="col">@lang('Comment')</th>
+                                    <th scope="col">@lang('Sender')</th>
+                                    <th scope="col">@lang('Date')</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @forelse($booking->comments as $comment)
+                                    <tr>
+<td>{{$comment->id}}</td>
+
+
+
+                                        <td>{{$comment->comment}}</td><td>{{$comment->sender}}</td><td>{{$comment->created_at}}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-muted text-center" colspan="100%">No comments</td>
+                                    </tr>
+                                @endforelse
+
+                                </tbody>
+                            </table><!-- table end -->
+                        </div>
+
+
+
+@endif
+
+                </div>
                 </div>
               </div>
           </div>
@@ -236,19 +275,54 @@
         </div>
     </div>
 </div>
+
+    <div id="comment" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@lang('Add A Comment')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('admin.users.booking.comment')}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+
+<input type="hidden" value="{{$booking->id}}" name="booking_id">
+
+
+                        <div class="form-group">
+                            <label for="name" class="form-control-label font-weight-bold">@lang('Comment') <span class="text-danger">*</span></label>
+
+                            <textarea name="comment" required class="form-control">
+
+
+                  </textarea>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
+                        <button type="submit" class="btn btn--primary">@lang('Save')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 
 @push('breadcrumb-plugins')
     @if($booking->status == 4)
         <button class="icon-btn btn--success ml-2 journalist" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Journalist Payment"><i class="las la-credit-card"></i>
-            @lang('Journalist Payment') 
+            @lang('Journalist Payment')
         </button>
 
         <button class="icon-btn btn--primary ml-2 member" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Member Refund"><i class="las la-credit-card"></i>
             @lang('Member Refund')
         </button>
-    @endif 
+    @endif
 @endpush
 
 @push('script')
@@ -265,6 +339,12 @@
         $('.member').on('click', function () {
             var modal = $('#buyerPayment');
             modal.find('input[name=id]').val($(this).data('id'))
+            modal.modal('show');
+        });
+
+
+        $('.commentBtn').on('click', function () {
+            var modal = $('#comment');
             modal.modal('show');
         });
 

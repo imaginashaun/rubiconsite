@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
+use App\Comment;
 use App\Deposit;
 use App\Gateway;
 use App\GeneralSetting;
@@ -85,7 +86,16 @@ class ManageUsersController extends Controller
     }
 
 
+    public function CommentBooking(Request $request){
+        $comment=new Comment();
+        $comment->comment=$request->comment;
+        $comment->booking_id=$request->booking_id;
+        $comment->sender='admin';
+        $comment->save();
+        $notify[] = ['success', 'Comment has been added'];
+        return redirect()->back()->withNotify($notify);
 
+    }
     public function ApproveBooking
     (Request $request)
     {

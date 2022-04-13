@@ -52,6 +52,8 @@
                                        <span class="badge text-white badge--completed">@lang('Completed')</span>
                                     @elseif($book->working_status == 2)
                                        <span class="badge text-white badge--deliverd">@lang('Delivered')</span>
+
+
                                     @elseif($book->working_status == 3)
                                          <span class="badge text-white badge--inprogress">@lang('In Progress')</span>
                                     @elseif($book->working_status == 4)
@@ -73,6 +75,9 @@
                                       <a href="#" class="icon-btn bg--1 cancelbtn" data-order_number="{{ $book->order_number }}"><i class="las la-times text-light"></i></a>
                                   @elseif($book->working_status == 2 || $book->working_status == 3)
                                       <a href="#" class="icon-btn bg-dark workFile" data-order_number="{{ $book->order_number }}"><i class="las la-truck-loading text-white"></i></a>
+                                       <a href="#" class="icon-btn bg-dark comment" data-order_number="{{ $book->order_number }}"><i class="las la-comment -loading text-white"></i></a>
+
+
                                   @endif
 
                                </td>
@@ -183,7 +188,35 @@
     </div>
 </div>
 
+<div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Add comment')</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action=" {{ url('user/journalist/booking/comment') }} " method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method("POST")
+                    <input type="hidden" name="order_number">
 
+                    <div class="form-group">
+                        <label class="font-weight-bold">@lang('Comment') <span class="text-danger">*</span></label>
+
+                        <textarea rows="5" class="form-control" name="comment" placeholder="@lang('Type something') ...." required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg--1 text-white" data-dismiss="modal">@lang('Close')</button>
+                        <button type="submit" class="btn bg--5 text-white">@lang('Submit')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="dispute_re" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -222,6 +255,12 @@
             modal.find('input[name=order_number]').val($(this).data('order_number'))
             modal.modal('show');
         });
+        $('.comment').on('click', function () {
+            var modal = $('#comment');
+            modal.find('input[name=order_number]').val($(this).data('order_number'))
+            modal.modal('show');
+        });
+
 
          $('.disputeReport').on('click', function () {
             var modal = $('#dispute_re');

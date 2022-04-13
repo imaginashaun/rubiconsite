@@ -158,6 +158,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         // Journalist Booking List
         Route::post('journalist/booking/store', 'ManageUsersController@StoreBooking')->name('users.booking.store');
         Route::post('journalist/booking/approve', 'ManageUsersController@ApproveBooking')->name('users.booking.approve');
+        Route::post('journalist/booking/comment', 'ManageUsersController@CommentBooking')->name('users.booking.comment');
 
         Route::get('journalist/booking/pending/{id}', 'ManageUsersController@bookingPending')->name('users.booking.pending');
         Route::get('journalist/booking/complete/{id}', 'ManageUsersController@bookingComplete')->name('users.booking.complete');
@@ -504,6 +505,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
                 Route::get('booking/create', 'ManageBookingController@create')->name('journalist.booking.create');
                 Route::post('booking/store', 'ManageBookingController@StoreBooking')->name('booking.store');
+                Route::post('booking/comment', 'ManageBookingController@StoreComment')->name('booking.comment');
 
                 Route::get('booking/list', 'ManageBookingController@index')->name('journalist.booking.list');
                 Route::get('booking/pending/list', 'ManageBookingController@pending')->name('journalist.booking.pending');
