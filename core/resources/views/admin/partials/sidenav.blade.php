@@ -215,7 +215,7 @@
                             <li class="sidebar-menu-item {{menuActive('admin.booking.pending_requests')}} ">
                                 <a href="{{route('admin.booking.pending_requests')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Pending Requests')</span>
+                                    <span class="menu-title">@lang('Journalists Pending Requests')</span>
                                 </a>
                             </li>
 

@@ -84,6 +84,52 @@ class ManageUsersController extends Controller
 
     }
 
+
+
+    public function ApproveBooking
+    (Request $request)
+    {
+
+//        dd($request);
+        $gnl= GeneralSetting::first();
+//        $user = auth()->guard('admin')->user();
+
+        $user=User::find(1);
+        $request->validate([
+            'booking_id' => 'required|exists:bookings,id',
+        ]);
+
+        $booking=Booking::find($request->booking_id);
+        if($user->balance < $booking->budget)
+        {
+            $notify[] = ['error', 'Your Account '. getAmount($user->balance) .' Balance Not Enough! Please Deposit Money'];
+            return back()->withNotify($notify);
+        }
+
+        $booking->member_id=1;
+        $booking->working_status = 0;
+        $booking->status = 1;
+        $booking->update();
+        $notify[] = ['success', 'Booking has been approved and updated'];
+
+        $transaction = new Transaction();
+        $transaction->user_id = $booking->member_id;
+        $transaction->amount = $booking->budget;
+        $transaction->post_balance = $user->balance;
+        $transaction->trx_type = '-';
+        $transaction->trx = getTrx();
+        $transaction->details = "Payment For journalist Booking";
+        $transaction->save();
+
+        notify($user, 'BOOKING_PAYMENT', [
+            'order_number' => $booking->order_number,
+            'amount' => getAmount($booking->budget),
+            'currency' => $gnl->cur_text,
+        ]);
+        return redirect()->back()->withNotify($notify);
+
+    }
+
     public function account($id)
     {
         $user = User::where('user_type', 'journalist')->where('id', $id)->firstOrFail();

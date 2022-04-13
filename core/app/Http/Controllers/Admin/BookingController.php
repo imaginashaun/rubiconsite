@@ -41,8 +41,8 @@ class BookingController extends Controller
     {
         $page_title = "Journalist Pending Booking Requests List";
         $empty_message = "No Data Found";
-        $bookings = Booking::where('status', 0)->latest()->with('member', 'journalist')->paginate(getPaginate());
-        return view('admin.booking.index', compact('page_title', 'empty_message', 'bookings'));
+        $bookings = Booking::where('status', 7)->latest()->with('member', 'journalist')->paginate(getPaginate());
+        return view('admin.booking.requests', compact('page_title', 'empty_message', 'bookings'));
     }
 
 
