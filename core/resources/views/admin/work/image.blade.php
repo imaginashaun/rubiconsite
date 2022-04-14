@@ -16,7 +16,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                        
+
                         @forelse($images as $value)
                             <tr>
                                 <td data-label="@lang('Title')">
@@ -107,7 +107,7 @@
                @csrf
                <input type="hidden" name="id" value="">
                <div class="modal-body">
-                   <p>@lang('Are you sure want to approved this image work?')</p>
+                   <p>@lang('Are you sure want to accept this image work?')</p>
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn--danger text-white" data-dismiss="modal">@lang('Close')</button>

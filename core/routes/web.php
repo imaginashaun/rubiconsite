@@ -516,6 +516,8 @@ Route::name('user.')->prefix('user')->group(function () {
                 Route::get('booking/complete/list', 'ManageBookingController@complete')->name('journalist.booking.complete');
                 Route::get('booking/cancel/list', 'ManageBookingController@cancel')->name('journalist.booking.cancel');
 
+                //http://localhost:8888/rubicon/user/journalist/booking/approved/update
+                //booking/approved/update
                 Route::get('booking/details/{order_number}', 'ManageBookingController@details')->name('journalist.booking.details');
                 Route::post('booking/approved/update', 'ManageBookingController@approvedBy')->name('journalist.booking.approved.update');
                 Route::post('booking/cancel/update', 'ManageBookingController@cancelBy')->name('journalist.booking.cancel.update');

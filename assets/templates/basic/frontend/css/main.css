@@ -237,7 +237,7 @@ a:hover {
 }
 
 .base--bg {
-    background-color: #ff7300 !important;
+    background-color: #062c4e !important;
 }
 
 .base--bg-two {
@@ -325,7 +325,7 @@ a:hover {
 }
 
 .base--color {
-    color: #ff7300 !important;
+    color: #062c4e !important;
 }
 
 .p--color {
@@ -379,7 +379,7 @@ a:hover {
 }
 
 .bg--base {
-    background-color: #ff7300 !important;
+    background-color: #062c4e !important;
 }
 
 .text-line-1 {
@@ -424,7 +424,7 @@ a:hover {
 .section-top-title {
     font-size: 18px;
     font-family: "Monda", sans-serif;
-    color: #ff7300;
+    color: #062c4e;
     text-transform: capitalize;
 }
 
@@ -476,7 +476,7 @@ a:hover {
     width: 50px;
     margin-left: -25px;
     height: 2px;
-    background-color: #ff7300;
+    background-color: #062c4e;
 }
 
 .section-title + p {
@@ -545,7 +545,7 @@ a:hover {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    background-color: #ff7300;
+    background-color: #062c4e;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -570,7 +570,7 @@ a:hover {
     left: 0;
     top: 0;
     border-radius: 74px;
-    background-color: #ff7300;
+    background-color: #062c4e;
     opacity: 0.15;
     z-index: -10;
 }
@@ -831,7 +831,7 @@ a:hover {
 }
 
 .nav-tabs.custom--style .nav-item .nav-link.active {
-    border-color: #ff7300;
+    border-color: #062c4e;
     color: #ff7300;
 }
 
@@ -861,7 +861,7 @@ a:hover {
 .nav-tabs.custom--style-two .nav-item .nav-link.active {
     border-color: #ff7300;
     color: #ffffff;
-    background-color: #ff7300;
+    background-color: #062c4e;
 }
 
 .cmn-list {
@@ -995,7 +995,7 @@ a:hover {
 
 
 .pagination .page-item.active .page-link {
-    background-color: #ff7300;
+    background-color: #062c4e;
     border-color: #ff7300;
     color: #ffffff;
 }
@@ -5847,6 +5847,7 @@ body *::-webkit-scrollbar-thumb {
     background: #ffffff0d;
     padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0);
+    display: none;
 }
 
 @media (max-width: 767px) {

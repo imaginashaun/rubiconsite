@@ -117,7 +117,7 @@ class ManageUsersController extends Controller
         }
 
         $booking->member_id=1;
-        $booking->working_status = 0;
+        $booking->working_status = 3;
         $booking->status = 1;
         $booking->update();
         $notify[] = ['success', 'Booking has been approved and updated'];

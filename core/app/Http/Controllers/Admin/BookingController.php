@@ -154,7 +154,13 @@ class BookingController extends Controller
         ]);
         $booking = Booking::find($request->id);
         $booking->status = 5;
+        $booking->working_status = 1;
         $booking->update();
+
+
+
+        //http://localhost:8888/rubicon/user/journalist/booking/approved/update
+        //http://localhost:8888/rubicon/user/journalist/booking/approved/update
 
         $charge = ($booking->budget / 100) * $gnl->charge;
         $amount = ($booking->budget - $charge);
@@ -178,7 +184,7 @@ class BookingController extends Controller
             'amount' => getAmount($booking->budget),
             'currency' => $gnl->cur_text,
         ]);
-        $notify[] = ['success', 'Journalist Send Money Complete.'];
+        $notify[] = ['success', 'Work Approved.'];
         return back()->withNotify($notify);
     }
 

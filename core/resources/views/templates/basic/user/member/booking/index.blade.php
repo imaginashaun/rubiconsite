@@ -102,7 +102,7 @@
         @method('POST')
         <div class="modal-body">
            <input type="hidden" name="order_number">
-            <p>@lang('Are you sure want to approved this work delivery?')</p>
+            <p>@lang('Are you sure want to accept this work delivery?')</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn bg--1 text-white btn-sm" data-dismiss="modal">@lang('Close')</button>
@@ -122,7 +122,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-        
+
             <div class="modal-body">
               <form action="{{ route('user.member.work.dispute') }}" method="POST">
                   @csrf

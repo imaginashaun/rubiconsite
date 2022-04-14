@@ -18,7 +18,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                        
+
                         @forelse($blogs as $value)
                             <tr>
                                 <td data-label="@lang('Id')">{{$loop->iteration}}</td>
@@ -106,7 +106,7 @@
                @csrf
                <input type="hidden" name="id" value="">
                <div class="modal-body">
-                   <p>@lang('Are you sure want to approved this blog?')</p>
+                   <p>@lang('Are you sure want to accept this blog?')</p>
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn--danger text-white" data-dismiss="modal">@lang('Close')</button>

@@ -63,7 +63,7 @@ class ManageBookingController extends Controller
 
     }
     public function StoreComment(Request $request){
-        dd($request);
+//        dd($request);
         $comment=new Comment();
 
         $b=Booking::where('order_number',$request->order_number)->first();
@@ -83,7 +83,7 @@ class ManageBookingController extends Controller
         $user = Auth::user();
         $page_title = "Booking Pending List";
         $empty_message  = "No Data Found";
-        $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->where('status', '!=', 7)->where('working_status', 0)->latest()->with('member')->paginate(10);
+        $booking = Booking::where('user_id', 0)->where('status', '!=', 0)->where('status', '!=', 7)->where('working_status', 0)->latest()->with('member')->paginate(10);
         return view($this->activeTemplate . 'user.journalist.booking.index', compact('page_title', 'empty_message', 'booking'));
     }
     public function mypending()
@@ -139,8 +139,12 @@ class ManageBookingController extends Controller
 
     public function approvedBy(Request $request)
     {
+
+
         $user = Auth::user();
-        $booking = Booking::where('order_number', $request->order_number)->where('user_id', $user->id)->firstOrFail();
+       // $booking = Booking::where('order_number', $request->order_number)->where('user_id', $user->id)->firstOrFail();
+        $booking = Booking::where('order_number', $request->order_number)->firstOrFail();
+
         $booking->working_status = 3;
         $booking->update();
         $notify[] = ['success', 'Booking Approved.'];

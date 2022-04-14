@@ -74,6 +74,8 @@ $members=\App\User::all();
                                         <span class="font-weight-normal badge--success">@lang('Paid')</span>
                                     @elseif($booking->status == 6)
                                         <span class="font-weight-normal badge--success">@lang('Refund')</span>
+                                  @elseif($booking->status == 7)
+                                      <span class="font-weight-normal badge--warning">@lang('Pending Approval')</span>
                                     @endif
                                </td>
 
@@ -82,6 +84,17 @@ $members=\App\User::all();
                                     <a href="{{route('admin.booking.detail', $booking->id)}}" class="icon-btn btn--primary" data-toggle="tooltip" title="" data-original-title="Details">
                                       <i class="las la-desktop text--shadow"></i>
                                     </a>
+
+                                      @if($booking->status == 7)
+                                            <form action="{{route('admin.users.booking.approve')}}" method="POST">
+
+                                                @csrf
+                                                <input type="hidden" value="{{$booking->id}}" name="booking_id">
+                                                <button type="submit" class="icon-btn btn-success">
+                                                    Approve
+                                                </button>
+                                            </form>
+                                          @endif
 
                                         @endif
                                 </td>

@@ -45,8 +45,7 @@
                                                 <span class="badge text-white badge--inprogress">@lang('Refund')</span>
 
                                             @elseif($book->status == 7)
-                                                <span class="badge text-white badge--pending">@lang('Pending Acceptance by client')</span>
-
+                                                <span class="badge text-white badge--pending">@lang('Pending Acceptance by Admin')</span>
                                             @endif
 
 
@@ -115,7 +114,7 @@
                     @method('POST')
                     <div class="modal-body">
                         <input type="hidden" name="order_number">
-                        <p>@lang('Are you sure want to approved this work?')</p>
+                        <p>@lang('Are you sure want to accept this work?')</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg--1 text-white" data-dismiss="modal">@lang('Close')</button>

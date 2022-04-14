@@ -212,7 +212,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Journalist Payment Confirmation')</h5>
+                <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Accept Work')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -222,7 +222,7 @@
                 @method('POST')
                 <input type="hidden" name="id">
                 <div class="modal-body">
-                    <p>@lang('Are you sure you want to payment this journalist?')</p>
+                    <p>@lang('Are you happy with the work done?')</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
@@ -314,14 +314,11 @@
 
 
 @push('breadcrumb-plugins')
-    @if($booking->status == 4)
+    @if(count($booking->workDelivery)>0 && $booking->status != 5)
         <button class="icon-btn btn--success ml-2 journalist" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Journalist Payment"><i class="las la-credit-card"></i>
-            @lang('Journalist Payment')
+            @lang('Accept Work')
         </button>
 
-        <button class="icon-btn btn--primary ml-2 member" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Member Refund"><i class="las la-credit-card"></i>
-            @lang('Member Refund')
-        </button>
     @endif
 @endpush
 

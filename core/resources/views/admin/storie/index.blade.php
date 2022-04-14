@@ -85,7 +85,7 @@
                @csrf
                <input type="hidden" name="id" value="">
                <div class="modal-body">
-                   <p>@lang('Are you sure want to delete this storie?')</p>
+                   <p>@lang('Are you sure want to delete this story?')</p>
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn--danger text-white" data-dismiss="modal">@lang('Close')</button>
@@ -110,7 +110,7 @@
                @csrf
                <input type="hidden" name="id" value="">
                <div class="modal-body">
-                   <p>@lang('Are you sure want to approved this storie?')</p>
+                   <p>@lang('Are you sure want to accept this story?')</p>
                </div>
                <div class="modal-footer">
                    <button type="button" class="btn btn--danger text-white" data-dismiss="modal">@lang('Close')</button>
