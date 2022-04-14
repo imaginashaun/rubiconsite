@@ -24,7 +24,7 @@ class ManageBookingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $page_title = "Booking All List";
+        $page_title = "All Bookings";
         $empty_message  = "No Data Found";
         $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->with('member')->latest()->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.booking.index', compact('page_title', 'empty_message', 'booking'));
@@ -32,7 +32,7 @@ class ManageBookingController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $page_title = "Post Booking";
+        $page_title = "Pitch a Story";
         $services=Service::all();
         return view($this->activeTemplate . 'user.journalist.booking.create', ['page_title'=>$page_title,'services'=>$services]);
     }

@@ -13,36 +13,8 @@
             </div>
           </div>
         </div>
-        <ul class="nav nav-tabs p-0 border-0 justify-content-center how-it-works-menu">
-          <li>
-            <a class="active" href="#member" data-toggle="tab">@lang('Members')</a>
-          </li>
-          <li>
-            <a href="#journalist" data-toggle="tab">@lang('Journalist')</a>
-          </li>
-        </ul>
         <div class="tab-content">
-          <div class="tab-pane show fade active" id="member">
-            <div class="row mb-none-30">
-              @forelse ($element as $key => $value)
-                  <div class="col-lg-4 mb-30">
-                    <div class="work-card">
-                      <div class="work-card__icon">
-                      @php echo $value->data_values->work_icon @endphp
-                        <span class="step-number text-white">{{ ++$key }}</span>
-                      </div>
-                      <div class="work-card__content">
-                        <h5 class="title mb-3">{{ __($value->data_values->title) }}</h5>
-                        <p>{{ __($value->data_values->description) }}</p>
-                      </div>
-                    </div>
-                  </div>
-              @empty
-
-              @endforelse
-            </div>
-          </div>
-          <div class="tab-pane fade" id="journalist">
+          <div class="tab-pane show fade active" id="journalist">
             <div class="row mb-none-30">
               @forelse ($element_journalist as $key => $value)
                   <div class="col-lg-4 mb-30">

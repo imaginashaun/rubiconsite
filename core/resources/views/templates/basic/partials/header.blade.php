@@ -1,7 +1,7 @@
 
   <header class="header">
     @include($activeTemplate.'partials.topbar')
-    <div class="header__bottom">
+    <div class="header__bottom" style="    background: #062c4ec7 !important;">
       <div class="container">
         <nav class="navbar navbar-expand-xl p-0 align-items-center">
           <a class="site-logo site-title" href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="site-logo"></a>
@@ -9,7 +9,8 @@
             <span class="menu-toggle"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav main-menu m-auto">
+            <ul class="navbar-nav main-menu nav-right" @guest style="position:absolute; right: 0px;"@endguest>
+            <!--
               <li> <a href="{{ route('home') }}">@lang('Home')</a></li>
               @foreach($pages as $k => $data)
                   <li><a href="{{route('pages',[$data->slug])}}" >{{__(trans($data->name))}}</a></li>
@@ -17,6 +18,7 @@
               <li> <a href="{{ route('stories') }}">@lang('Stories')</a></li>
               <li> <a href="{{ route('journalist') }}">@lang('Journalist')</a></li>
               <li><a href="{{route('contact')}}" >@lang('Contact')</a></li>
+                -->
 
               @auth
                 @if(auth()->user()->user_type == "member")
@@ -35,19 +37,15 @@
                   </li>
                 @endif
               @endauth
+
+                @guest
+
+                    <li><a href="{{route('user.register')}}">@lang('Register')</a></li>
+
+                    <li><a href="{{ route('user.login') }}">@lang('Login')</a></li>
+                @endguest
             </ul>
-            @guest
-              <div class="nav-right">
-                <ul class="account-menu ml-3">
-                    <li class="icon"><i class="las la-user"></i>
-                      <ul class="account-submenu">
-                        <li><a href="{{ route('user.login') }}">@lang('Login')</a></li>
-                        <li><a href="{{route('user.register')}}">@lang('Registration')</a></li>
-                      </ul>
-                    </li>
-                </ul>
-              </div>
-            @endguest
+
 
           </div>
         </nav>

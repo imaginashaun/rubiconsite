@@ -1,7 +1,8 @@
 @php
     $content = getContent('contact_us.content', true);
 @endphp
-<div class="header-top">
+
+<!--<div class="header-top">
         <div class="container">
             <div class="d-flex flex-wrap mx--5 justify-content-sm-between justify-content-center align-items-center">
 
@@ -25,4 +26,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
