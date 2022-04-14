@@ -41,7 +41,7 @@
                                         <h6>@lang('Country') :</h6>
                                         <span>{{__(@$user->address->country)}}</span>
                                     </div>
-                                </div><!-- row end --> 
+                                </div><!-- row end -->
                                 <div class="row">
                                     <div class="col-lg-12 py-3">
                                         <h6>@lang('Skills') :</h6>
@@ -72,7 +72,7 @@
                         <div class="card-header bg--6"><h5 class="text-center text-white">@lang('Profile Update')</h5></div>
                         <div class="card-body">
                                 <div class="form-group">
-                                    <label for="service" class="col-form-label">@lang('What is the main service you offer clients?')</label>
+                                    <label for="service" class="col-form-label">@lang('What is the main service you specialize in?')</label>
                                     <select class="form-control" name="service_id" id="service" required>
                                         <option value="0">@lang('Select Service')</option>
                                         @foreach ($service as $key => $value)
@@ -83,7 +83,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label for="skill" class="col-form-label">@lang('What skills do you offer clients?')</label>
+                                        <label for="skill" class="col-form-label">@lang('What are your skills?')</label>
                                         <select name="skill[]" id="skill" class="form-control select2"  multiple="multiple" required>
                                         @if(!empty($user->skill))
                                             @foreach ($user->skill as  $value)
@@ -91,12 +91,12 @@
                                             @endforeach
                                         @endif
                                         </select>
-                                        <small>@lang('Enter at least one skill')</small>
+                                        <small>@lang('Select at least one skill')</small>
                                     </div>
-                            
+
 
                                     <div class="form-group col-lg-6">
-                                        <label for="language" class="col-form-label">@lang('Add Language') <span class="text-danger">*</span></label>
+                                        <label for="language" class="col-form-label">@lang('Language(s)') <span class="text-danger">*</span></label>
                                         <select name="language[]" class="form-control select2Language" id="language" multiple="multiple">
                                             @if(!empty($user->language))
                                                 @foreach ($user->language as  $value)
@@ -123,13 +123,13 @@
                                     </div>
                                 </div>
 
-                             
+
                                 <div class="form-group">
                                     <label for="designation" class="col-form-label">@lang('Designation')</label>
                                     <input type="text" class="form-control" id="designation" name="designation"
                                     placeholder="@lang('Enter Designation')" value="{{@$user->designation}}">
                                 </div>
-                         
+
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -138,8 +138,8 @@
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="state" class="col-form-label">@lang('State') <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="state" name="state" placeholder="@lang('state')" value="{{@$user->address->state}}" required>
+                                        <label for="state" class="col-form-label">@lang('Province/State/District') <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="state" name="state" placeholder="@lang('Province/State/District')" value="{{@$user->address->state}}" required>
                                     </div>
                                 </div>
 
@@ -148,7 +148,7 @@
                                         <label for="zip" class="col-form-label">@lang('Zip Code') <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="zip" name="zip" placeholder="@lang('Zip Code')" value="{{@$user->address->zip}}" required>
                                     </div>
-                           
+
                                     <div class="form-group col-md-6">
                                         <label for="city" class="col-form-label">@lang('City') <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="city" name="city" placeholder="@lang('City')" value="{{@$user->address->city}}" required>
@@ -156,7 +156,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description" class="col-form-label">@lang('About profession') <span class="text-danger">*</span></label>
+                                    <label for="description" class="col-form-label">@lang('About yourself') <span class="text-danger">*</span></label>
                                     <textarea name="about_profession" id="description" class="form-control" rows="8" cols="80" placeholder="Member Description">{{@$user->about_profession}}</textarea>
                                 </div>
 

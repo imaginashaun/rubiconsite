@@ -1,6 +1,6 @@
 <header class="header">
     @include($activeTemplate.'partials.topbar')
-    <div class="header__bottom">
+    <div class="header__bottom" style="  background: #062c4ec7 !important;">
       <div class="container">
         <nav class="navbar navbar-expand-xl p-0 align-items-center">
           <a class="site-logo site-title" href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="site-logo"></a>
