@@ -12,7 +12,7 @@
             <ul class="navbar-nav main-menu m-auto">
                 <li> <a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
                 <li class="menu_has_children"><a href="#0">@lang('Bookings')</a>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu blueback">
                         <li><a href="{{ route('user.journalist.booking.list') }}">@lang('All Bookings')</a></li>
                         <li><a href="{{ route('user.journalist.booking.pending') }}">@lang('Pending Booking')</a></li>
                         <li><a href="{{ route('user.journalist.booking.my_pending') }}">@lang('My Pending Booking Requests')</a></li>
@@ -31,12 +31,12 @@
                     </ul>
                 </li>
 
-                <li class="menu_has_children"><a href="#0">@lang('Stories')</a>
+             <!--   <li class="menu_has_children"><a href="#0">@lang('Stories')</a>
                     <ul class="sub-menu">
                         <li><a href="{{route('user.storie.create')}}">@lang('Add Story')</a></li>
                         <li><a href="{{route('user.storie.index')}}">@lang('All Stories')</a></li>
                     </ul>
-                </li>
+                </li>-->
 
             <!--    <li class="menu_has_children"><a href="#0">@lang('Withdraw')</a>
                     <ul class="sub-menu">

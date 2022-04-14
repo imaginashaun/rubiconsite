@@ -40,7 +40,7 @@
 
                 @guest
 
-                    <li><a href="{{route('user.register')}}">@lang('Register')</a></li>
+                    <li><a href="{{route('user.register.journalist')}}">@lang('Register')</a></li>
 
                     <li><a href="{{ route('user.login') }}">@lang('Login')</a></li>
                 @endguest

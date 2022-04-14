@@ -24,7 +24,7 @@
     @php echo fbcomment() @endphp
     <div class="scroll-to-top">
       <span class="scroll-icon">
-        <i class="fa fa-rocket" aria-hidden="true"></i>
+        <i class="fa fa-caret-up" aria-hidden="true"></i>
       </span>
     </div>
     <!-- scroll-to-top end -->

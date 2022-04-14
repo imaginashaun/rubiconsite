@@ -46,7 +46,7 @@
                                     <label for="description">@lang('Description')</label>
                                     <textarea placeholder="@lang('Description')" name="description" id="description" class="form-control" required="">{{ old('description')}}</textarea>
                                 </div>
-                                <button type="submit" class="cmn-btn btn-block">@lang('Post Booking')</button>
+                                <button type="submit" class="cmn-btn btn-block">@lang('Submit')</button>
                             </form>
                         </div>
                     </div>

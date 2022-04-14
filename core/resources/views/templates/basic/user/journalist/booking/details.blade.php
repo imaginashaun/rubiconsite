@@ -73,7 +73,8 @@
                      <div class="card-title my-4"><h6>@lang('Description')</h6></div>
                      <div class="card-text">@php echo $booking_details->description @endphp</div>
                     @if(count($booking_details->comments)>0)
-                        <h4>Work Delivery Comments</h4>
+                        <hr>
+                         <h4>Comments</h4>
                          <div class="card-body table-responsive--lg p-0">
                          <table class="table style--two white-space-nowrap">
                              <thead>

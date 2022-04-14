@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
 
                     <div class="text-right my-2">
-                        <a href="{{url('user/journalist/booking/create')}}" class="btn bg--6 text-white addVideoBtn"><i class="las la-plus"></i> @lang('Add Booking')</a>
+                        <a href="{{url('user/journalist/booking/create')}}" class="btn bg--6 text-white addVideoBtn"><i class="las la-plus"></i> @lang('Pitch a Story')</a>
                     </div>
                     <div class="card">
                         <div class="card-body table-responsive--lg p-0">

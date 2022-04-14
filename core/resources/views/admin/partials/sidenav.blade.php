@@ -24,14 +24,14 @@
                  <li class="sidebar-menu-item ">
                     <a href="{{route('admin.category.index')}}" class="{{menuActive('admin.category*',3)}}">
                         <i class="menu-icon las la-list-alt"></i>
-                        <span class="menu-title">@lang('All Category')</span>
+                        <span class="menu-title">@lang('Categories')</span>
                     </a>
                 </li>
 
                  <li class="sidebar-menu-item ">
                     <a href="{{route('admin.service.index')}}" class="{{menuActive('admin.service*',3)}}">
                         <i class="menu-icon las la-bars"></i>
-                        <span class="menu-title">@lang('All Service')</span>
+                        <span class="menu-title">@lang('Services')</span>
                     </a>
                 </li>
 
@@ -51,7 +51,7 @@
                             <li class="sidebar-menu-item {{menuActive('admin.users.all')}} ">
                                 <a href="{{route('admin.users.all')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Journalist')</span>
+                                    <span class="menu-title">@lang('All Journalists')</span>
                                 </a>
                             </li>
 
@@ -70,7 +70,7 @@
                                     @endif
                                 </a>
                             </li>
-
+                            @if(auth()->guard('admin')->user()->id == 1)
                             <li class="sidebar-menu-item  {{menuActive('admin.users.emailUnverified')}}">
                                 <a href="{{route('admin.users.emailUnverified')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
@@ -102,6 +102,7 @@
                                 </a>
                             </li>
 
+                            @endif
                         </ul>
                     </div>
                 </li>
@@ -180,8 +181,8 @@
                 @endif
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.journalist.booking*',3)}}">
-                        <i class="menu-icon las la-arrows-alt"></i>
-                        <span class="menu-title">@lang('Journalist Booking')</span>
+                        <i class="menu-icon las la-newspaper"></i>
+                        <span class="menu-title">@lang('Stories')</span>
                         @if($booking_complete_count > 0)
                             <span class="menu-badge pill bg--primary ml-auto">
                                 <i class="fa fa-exclamation"></i>
@@ -314,7 +315,7 @@
                         </ul>
                     </div>
                 </li>
-
+                @if(auth()->guard('admin')->user()->id == 1)
                  <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.stories*',3)}}">
                         <i class="menu-icon las la-book-medical"></i>
@@ -353,7 +354,7 @@
                         </ul>
                     </div>
                 </li>
-
+                @endif
 
 
                 @if(auth()->guard('admin')->user()->id == 1)

@@ -33,6 +33,8 @@
     @endif
 
     <div class="row mb-none-30">
+        @if(auth()->guard('admin')->user()->id == 1)
+
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
                 <div class="icon">
@@ -174,6 +176,7 @@
             </div>
         </div><!-- dashboard-w1 end -->
 
+        @endif
 
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--deep-purple b-radius--10 box-shadow" >
@@ -301,12 +304,12 @@
           </div>
         </div>
 
-
+    @if(auth()->guard('admin')->user()->id == 1)
     <div class="row mt-50 mb-none-30">
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Monthly  Deposit & Withdraw  Report')</h5>
+                    <h5 class="card-title">@lang('Monthly Deposit & Withdraw  Report')</h5>
                     <div id="apex-bar-chart"> </div>
                 </div>
             </div>
@@ -436,6 +439,9 @@
             </div>
         </div>
     </div>
+    @endif
+
+
 
 
     <div class="row mb-none-30 mt-5">
@@ -443,7 +449,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card ">
                 <div class="card-header">
-                    <h6 class="card-title mb-0">@lang('New Journalist list')</h6>
+                    <h6 class="card-title mb-0">@lang('New Journalists')</h6>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive--sm table-responsive">
@@ -489,7 +495,7 @@
         <div class="col-xl-6 mb-30">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@lang('Last 30 days Withdraw History')</h5>
+                    <h5 class="card-title">@lang('Jounalists\' 30 Day Earning History')</h5>
                     <div id="withdraw-line"></div>
                 </div>
             </div>
@@ -497,7 +503,7 @@
 
 
     </div>
-
+<!--
     <div class="row mb-none-30 mt-5">
         <div class="col-xl-4 col-lg-6 mb-30">
             <div class="card overflow-hidden">
@@ -524,6 +530,7 @@
             </div>
         </div>
     </div>
+    -->
 
 @endsection
 

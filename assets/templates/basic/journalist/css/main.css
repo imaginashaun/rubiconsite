@@ -5,6 +5,8 @@ html {
     scroll-behavior: smooth;
 }
 
+
+
 body {
     font-family: "Monda", sans-serif;
     color: #6f6f6f;
@@ -6687,3 +6689,6 @@ color: #48b0f7 !important
     background-color: #b84709;
 }
 
+.blueback, .header .main-menu li .sub-menu, .table.style--two thead {
+    background-color: #0b2036 !important;
+}

@@ -1,3 +1,4 @@
+<option value="268" data-country="Swaziland" data-code="SZ">@lang("+268")</option>
 <option value="93" data-country="Afghanistan" data-code="AF">@lang("+93")</option>
 <option value="358" data-country="Åland Islands" data-code="AX">@lang("+358")</option>
 <option value="355" data-country="Albania" data-code="AL">@lang("+355")</option>

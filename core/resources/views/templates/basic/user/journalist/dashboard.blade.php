@@ -96,7 +96,7 @@
 
                 </div>
 
-                <div class="row mt-50">
+<!--                <div class="row mt-50">
                     <div class="col-lg-12">
                         <h5 class="py-3">@lang('Transaction Log')</h5>
                         <div class="card">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 </div>

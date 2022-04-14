@@ -27,8 +27,8 @@ class ManageUsersController extends Controller
 {
     public function allUsers()
     {
-        $page_title = 'Manage Journalist';
-        $empty_message = 'No Journalist found';
+        $page_title = 'Manage Journalists';
+        $empty_message = 'No Journalists found';
         $users = User::where('user_type', 'journalist')->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
@@ -152,7 +152,7 @@ class ManageUsersController extends Controller
 
     public function activeUsers()
     {
-        $page_title = 'Manage Active Journalist';
+        $page_title = 'Manage Active Journalists';
         $empty_message = 'No active Journalist found';
         $users = User::active()->where('user_type', 'journalist')->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
@@ -160,8 +160,8 @@ class ManageUsersController extends Controller
 
     public function bannedUsers()
     {
-        $page_title = 'Banned Journalist';
-        $empty_message = 'No banned Journalist found';
+        $page_title = 'Banned Journalists';
+        $empty_message = 'No banned Journalists found';
         $users = User::banned()->where('user_type', 'journalist')->latest()->paginate(getPaginate());
         return view('admin.users.list', compact('page_title', 'empty_message', 'users'));
     }
