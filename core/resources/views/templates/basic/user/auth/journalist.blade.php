@@ -10,11 +10,11 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="account-wrapper">
-          <div class="left base--bg">
-            <div>
-              <h2 class="text-white mb-4">{{__(@$content->data_values->heading)}}</h2>
-              <p class="text-white">{{__(@$content->data_values->sub_heading)}}</p>
-            </div>
+            <div class="left base--bg" style="background-image: url('{{getImage('assets/images/bg_quote.png', '350x300')}}')">
+             <!-- <div style="width: 400px; background:rgba(0,0,0,0.71); color: #fff">
+                  <p style="color: #fff">"The function of journalism is, primarily, to uncover vital new information in the public interest and to put that information in a context so that we can use it to improve the human condition."</p>
+                  <p>-- Joshua Oppenheimer</p>
+              </div>-->
           </div>
           <div class="right">
             <div>
@@ -43,7 +43,7 @@
                     <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="@lang('Email Address')" class="form-control">
                 </div>
 
-              
+
                 <div class="form-group col-lg-6 country-code">
                     <label for="mobile">@lang('Mobile')</label>
                     <div class="input-group ">
@@ -57,8 +57,8 @@
                         <input type="text" name="mobile" class="form-control" placeholder="@lang('Your Phone Number')">
                     </div>
                 </div>
-            
-             
+
+
 
                 <div class="form-group col-lg-6">
                     <label for="email">@lang('Country')</label>
@@ -82,11 +82,11 @@
                 <div class="col-lg-6 mt-3">
                     <button type="submit" class="cmn-btn">@lang('Sign Up')</button>
                 </div>
-                <div class="col-lg-6 text-lg-right"> 
+                <div class="col-lg-6 text-lg-right">
                   <p>@lang('Have an account?') <a href="{{route('user.login')}}" class="mt-4 base--color">@lang('Login')</a></p>
                 </div>
                </div>
-              
+
               </form>
             </div>
           </div>

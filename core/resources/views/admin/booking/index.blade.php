@@ -85,7 +85,7 @@ $members=\App\User::all();
                                       <i class="las la-desktop text--shadow"></i>
                                     </a>
 
-                                      @if($booking->status == 7)
+                                  <!--    @if($booking->status == 7)
                                             <form action="{{route('admin.users.booking.approve')}}" method="POST">
 
                                                 @csrf
@@ -95,7 +95,7 @@ $members=\App\User::all();
                                                 </button>
                                             </form>
                                           @endif
-
+-->
                                         @endif
                                 </td>
                             </tr>

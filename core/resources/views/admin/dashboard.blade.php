@@ -188,7 +188,7 @@
                         <span class="amount">{{$booking['pending']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Pending Booking')</span>
+                        <span class="text--small">@lang('Pending Stories')</span>
                     </div>
 
                     <a href="{{route('admin.booking.pending')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
@@ -205,7 +205,7 @@
                         <span class="amount">{{$booking['inprogress']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Inprogress Booking')</span>
+                        <span class="text--small">@lang('Inprogress Stories')</span>
                     </div>
 
                     <a href="{{route('admin.booking.inprogress')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
@@ -222,7 +222,7 @@
                         <span class="amount">{{$booking['delivered']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Delivered Booking')</span>
+                        <span class="text--small">@lang('Delivered Stories')</span>
                     </div>
 
                     <a href="{{route('admin.booking.delivered')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
@@ -239,7 +239,7 @@
                         <span class="amount">{{$booking['complete']}}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Complete Booking')</span>
+                        <span class="text--small">@lang('Completed Stories')</span>
                     </div>
 
                     <a href="{{route('admin.booking.complete')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
@@ -259,7 +259,7 @@
               </div>
               <div class="widget-two__content">
                 <h2 class="">{{$work['video']}}</h2>
-                <p>@lang('Total Video Work')</p>
+                <p>@lang('Videos')</p>
               </div>
             </div><!-- widget-two end -->
           </div>
@@ -272,7 +272,7 @@
               </div>
               <div class="widget-two__content">
                 <h2 class="">{{$work['audio']}}</h2>
-                <p>@lang('Total Audio Work')</p>
+                <p>@lang('Audio')</p>
               </div>
             </div><!-- widget-two end -->
           </div>
@@ -285,7 +285,7 @@
               </div>
               <div class="widget-two__content">
                 <h2 class="">{{$work['blog']}}</h2>
-                <p>@lang('Total Blog Link')</p>
+                <p>@lang('Blog Links')</p>
               </div>
             </div><!-- widget-two end -->
           </div>
@@ -298,7 +298,7 @@
               </div>
               <div class="widget-two__content">
                 <h2 class="">{{$work['image']}}</h2>
-                <p>@lang('Total Image Work')</p>
+                <p>@lang('Images')</p>
               </div>
             </div><!-- widget-two end -->
           </div>

@@ -16,7 +16,7 @@ class BookingController extends Controller
 
     public function index()
     {
-        $page_title = "All Booking List";
+        $page_title = "All Stories";
         $empty_message = "No Data Found";
         $bookings = Booking::where('status', '!=', 0)->latest()->with('member', 'journalist')->paginate(getPaginate());
         return view('admin.booking.index', compact('page_title', 'empty_message', 'bookings'));

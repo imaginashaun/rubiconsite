@@ -373,7 +373,7 @@ plotOptions: {
   },
 },
 fill: {
-  colors: '#7367f0',
+  colors: '#06254f',
   type: 'solid'
 },
 labels: ['Cricket'],

@@ -4,7 +4,7 @@
         <div class="col-xl-3 col-lg-5 col-md-5 mb-30">
             <div class="card b-radius--10 overflow-hidden box--shadow1">
                 <div class="card-body">
-                    <h5 class="mb-20 text-muted">@lang('Member Information')</h5>
+                    <h5 class="mb-20 text-muted">@lang('Admin Information')</h5>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Member Name')

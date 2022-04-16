@@ -10,11 +10,18 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="account-wrapper">
-              <div class="left base--bg">
-                <div>
-                  <h2 class="text-white mb-4">{{@$content->data_values->heading}}</h2>
-                  <p class="text-white">{{@$content->data_values->sub_heading}}</p>
-                </div>
+
+
+              <div class="left base--bg" style="background-color: red !important; background-image: url('{{getImage('assets/images/bg_quote.png', '350x300')}}')">
+
+<!--                  <div style="width: 400px; background:rgba(0,0,0,0.71); color: #fff">
+                      <p style="color: #fff">"The function of journalism is, primarily, to uncover vital new information in the public interest and to put that information in a context so that we can use it to improve the human condition."</p>
+                      <p>-- Joshua Oppenheimer</p>
+                  </div>
+                  -->
+
+
+
               </div>
               <div class="right">
                   <h4 class="mb-4 col-lg-12">@lang('Login in your account')</h4>
@@ -32,7 +39,7 @@
                     <div class="form-group">
                         @php echo recaptcha() @endphp
                     </div>
-                    
+
                     @include($activeTemplate.'partials.custom-captcha')
 
                     <div class="col-lg-12">
