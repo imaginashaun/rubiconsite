@@ -158,6 +158,11 @@ class BookingController extends Controller
         $booking->update();
 
 
+        $work=$booking->lastworkDelivery();
+        $w=WorkDelivery::find($work->id);
+        $w->approval_status='Has been approved';
+        $w->update();
+
 
         //http://localhost:8888/rubicon/user/journalist/booking/approved/update
         //http://localhost:8888/rubicon/user/journalist/booking/approved/update

@@ -36,4 +36,19 @@ class Booking extends Model
     }
 
 
+    public function lastworkDelivery()
+    {
+
+        if(count($this->workDelivery)>0){
+      $work=  $this->workDelivery()
+            ->latest('id')
+            ->first();
+        return $work;}
+
+        else{
+
+            return null;
+    }
+    }
+
 }

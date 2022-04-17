@@ -159,6 +159,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('journalist/booking/store', 'ManageUsersController@StoreBooking')->name('users.booking.store');
         Route::post('journalist/booking/approve', 'ManageUsersController@ApproveBooking')->name('users.booking.approve');
         Route::post('journalist/booking/comment', 'ManageUsersController@CommentBooking')->name('users.booking.comment');
+        Route::post('journalist/booking/rejectwork', 'ManageUsersController@RejectWork')->name('users.booking.rejectwork');
 
         Route::get('journalist/booking/pending/{id}', 'ManageUsersController@bookingPending')->name('users.booking.pending');
         Route::get('journalist/booking/complete/{id}', 'ManageUsersController@bookingComplete')->name('users.booking.complete');

@@ -18,6 +18,7 @@ use App\Booking;
 use App\Employment;
 use App\Education;
 use App\JournalistWorkFile;
+use App\WorkDelivery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -94,6 +95,19 @@ class ManageUsersController extends Controller
         $comment->save();
         $notify[] = ['success', 'Comment has been added'];
         return redirect()->back()->withNotify($notify);
+
+    }
+
+    public function RejectWork
+    (Request $request)
+    {
+        $booking=Booking::find($request->id);
+$work=$booking->lastworkDelivery();
+$w=WorkDelivery::find($work->id);
+$w->approval_status=$request->approval_status;
+$w->update();
+$notify[] = ['success', 'Work has been updated'];
+ return redirect()->back()->withNotify($notify);
 
     }
     public function ApproveBooking

@@ -148,6 +148,10 @@
                      </ul>
                      <div class="card-title mt-3">@lang('Description')</div>
                      <div class="card-text">{{ $booking->description }}</div>
+                    @if($booking->lastworkDelivery()!=null) <div class="card-title mt-3">@lang('Last Delivery Status')</div>
+                    <div class="card-text">{{ $booking->lastworkDelivery()->approval_status }}</div>
+
+                @endif
                      <div class="card-title text-center my-3"><h6>@lang('Work Delivery')</h6></div>
                       @forelse($booking->workDelivery as $value)
                         <div class="col-md-12 text-center">
@@ -207,7 +211,36 @@
           </div>
       </div>
   </div>
-
+    <div class="modal fade" id="rejectwork" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Reject Work')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('admin.users.booking.rejectwork')}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input type="hidden" name="id">
+                    <div class="modal-body">
+                        <p>@lang('Are you sure you want to reject the last work submitted?')</p>
+                       <h2>Select Reason</h2>
+                        <select class="form-control mt-4" name="approval_status" required>
+                            <option value="">--Select--</option>
+                            <option value="Has been rejected">I do not like the work</option>
+                            <option value="Similar work has already been submitted">Similar work has already been submitted</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
+                        <button type="submit" class="btn btn--success">@lang('Confirm')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 <div class="modal fade" id="sellerPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -232,6 +265,8 @@
         </div>
     </div>
 </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="buyerPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -314,10 +349,17 @@
 
 
 @push('breadcrumb-plugins')
-    @if(count($booking->workDelivery)>0 && $booking->status != 5)
-        <button class="icon-btn btn--success ml-2 journalist" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Journalist Payment"><i class="las la-credit-card"></i>
+    @if(count($booking->workDelivery)>0 && $booking->status != 5 && $booking->lastworkDelivery()!=null)
+       @if($booking->lastworkDelivery()->approval_status!='Has been approved') <button class="icon-btn btn--warning ml-2 rejectwork" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Disapprove Work"><i class="las la-credit-card"></i>
+            @lang('Reject Work')
+        </button>
+
+       @endif
+       @if($booking->lastworkDelivery()->approval_status!='Has been approved') <button class="icon-btn btn--success ml-2 journalist" data-toggle="tooltip" title="" data-id="{{$booking->id}}" data-original-title="Journalist Payment"><i class="las la-credit-card"></i>
             @lang('Accept Work')
         </button>
+
+           @endif
 
     @endif
 @endpush
@@ -333,6 +375,12 @@
             modal.modal('show');
         });
 
+
+        $('.rejectwork').on('click', function () {
+            var modal = $('#rejectwork');
+            modal.find('input[name=id]').val($(this).data('id'))
+            modal.modal('show');
+        });
         $('.member').on('click', function () {
             var modal = $('#buyerPayment');
             modal.find('input[name=id]').val($(this).data('id'))

@@ -74,7 +74,15 @@
                      <div class="card-text">@php echo $booking_details->description @endphp</div>
                     @if(count($booking_details->comments)>0)
                         <hr>
+                         <div class="text-right my-2">
+
+                             <a href="#" class="icon-btn bg-dark comment" data-order_number="{{ $booking_details->order_number }}"><i class="las la-comment -loading text-white"></i></a>
+
+                         </div>
+
                          <h4>Comments</h4>
+
+
                          <div class="card-body table-responsive--lg p-0">
                          <table class="table style--two white-space-nowrap">
                              <thead>
@@ -111,6 +119,37 @@
            </div>
          </div>
        </section>
+
+<div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Add comment')</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action=" {{ url('user/journalist/booking/comment') }} " method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method("POST")
+{{--                    <input type="hidden" name="order_number">--}}
+                    <input type="hidden" name="order_number" value="{{$booking_details->order_number}}">
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">@lang('Comment') <span class="text-danger">*</span></label>
+
+                        <textarea rows="5" class="form-control" name="comment" placeholder="@lang('Type something') ...." required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg--1 text-white" data-dismiss="modal">@lang('Close')</button>
+                        <button type="submit" class="btn bg--5 text-white">@lang('Submit')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('script')
@@ -122,5 +161,10 @@
              modal.modal('show');
         });
       })(jQuery)
+
+     $('.comment').on('click', function () {
+         var modal = $('#comment');
+         modal.modal('show');
+     });
   </script>
 @endpush

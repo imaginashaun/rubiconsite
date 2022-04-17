@@ -28,6 +28,7 @@ class WorkDeliveryController extends Controller
       $work_delivery->journalist_id = $user->id;
       $work_delivery->booking_id = $booking->id;
       $work_delivery->details = $request->details;
+      $work_delivery->approval_status='Pending Approval';
       if($request->hasFile('file')) {
          $file = $request->file;
          $extension = $file->getClientOriginalExtension();
