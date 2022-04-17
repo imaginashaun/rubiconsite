@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 pr-lg-5">
@@ -114,7 +114,7 @@
                 <b>@lang('Inprogress Job')</b>
                 <span class="">{{__($job_progress) }}</span>
               </li>
-            
+
             </ul>
           </div>
           <div class="sidebar-block">

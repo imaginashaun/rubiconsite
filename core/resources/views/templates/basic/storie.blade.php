@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
   <div class="container">
         <div class="row mt-50">
           @forelse($stories as $value)
@@ -58,21 +58,21 @@
       border: 2px solid #e5e5e5;
       text-align: center;
       width: 100%;
-  } 
+  }
   .empty-message-box .icon {
       font-size: 120px;
       line-height: 1;
       animation: shake 1s 1 linear;
-  } 
+  }
   .empty-message-box .caption {
       font-size: 24px;
       font-weight: 500;
       margin-top: 20px;
-  } 
+  }
   @media(max-width: 767px) {
       .empty-message-box .icon {
       font-size: 90px
-      } 
+      }
       .empty-message-box .caption {
           font-size: 18px;
       }

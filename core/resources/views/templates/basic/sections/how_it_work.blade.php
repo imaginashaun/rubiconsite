@@ -3,7 +3,7 @@
     $element = getContent('how_it_work.element', false, 3);
     $element_journalist = getContent('how_it_work_journalist.element', false, 3);
 @endphp
-    <section class="pt-120 pb-120">
+    <section class="pt-60 pb-60">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">

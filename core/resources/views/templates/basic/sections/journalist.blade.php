@@ -3,7 +3,7 @@
     $journalist = \App\User::where('user_type', 'journalist')->where('status', 1)->where('featured', 1)->where('account_status', 1)->select('username', 'address', 'image', 'designation')->get();
 @endphp
     <!-- journalist section start -->
-    <section class="pt-120 pb-120 section--bg">
+    <section class="pt-60 pb-60 section--bg">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">

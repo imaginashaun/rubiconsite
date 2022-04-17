@@ -5,7 +5,7 @@
 @endphp
 @include($activeTemplate . 'partials.breadcrumb')
     <!-- account section start -->
-    <section class="pt-120 pb-120">
+    <section class="pt-60 pb-60">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10">
@@ -51,7 +51,7 @@
                             <a href="{{route('user.password.request')}}" class="mt-4 base--color">@lang('Forgot password?')</a>
                         </div>
                         <div class="col-lg-6 text-lg-right">
-                             <a href="{{route('user.register')}}" class="mt-lg-4 mt-2 base--color">@lang('Registration')</a>
+                             <a href="{{route('user.register.journalist')}}" class="mt-lg-4 mt-2 base--color">@lang('Registration')</a>
                         </div>
                     </div>
                   </form>

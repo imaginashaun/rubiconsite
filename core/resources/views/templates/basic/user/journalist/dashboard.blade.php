@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -51,6 +51,8 @@
                         </div>
                     </div>
                     -->
+
+
                     <div class="col-xl-4 col-md-6 mb-30">
                         <div class="d-widget-two d-flex flex-wrap align-items-center">
                             <div class="col-8">
@@ -65,20 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6 mb-30">
-                        <div class="d-widget-two color--two d-flex flex-wrap align-items-center">
-                            <div class="col-8">
-                                <span class="caption">@lang('Completed Work')</span>
-                                <h4 class="currency-amount">{{$booking['complete']}}</h4>
-                                <a href="{{ route('user.journalist.booking.complete') }}" class="action-btn fs-12px mt-3">@lang('View All')</a>
-                            </div>
-                            <div class="col-4 text-right">
-                                <div class="icon">
-                                    <i class="las la-list-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-xl-4 col-md-6 mb-30">
                         <div class="d-widget-two color--three d-flex flex-wrap align-items-center">
                             <div class="col-8">
@@ -93,6 +82,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-xl-4 col-md-6 mb-30">
+                        <div class="d-widget-two color--two d-flex flex-wrap align-items-center">
+                            <div class="col-8">
+                                <span class="caption">@lang('Completed Work')</span>
+                                <h4 class="currency-amount">{{$booking['complete']}}</h4>
+                                <a href="{{ route('user.journalist.booking.complete') }}" class="action-btn fs-12px mt-3">@lang('View All')</a>
+                            </div>
+                            <div class="col-4 text-right">
+                                <div class="icon">
+                                    <i class="las la-list-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
 

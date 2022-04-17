@@ -1,7 +1,7 @@
 @extends($activeTemplate .'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -41,7 +41,7 @@
 								    <label for="description">@lang('Story Description') <span class="text-danger">*</span></label>
 								    <textarea rows="4" class="form-control" name="description" id="description" maxlength="5000" placeholder="Enter Description">{{old('description')}}</textarea>
 								</div>
-									
+
 								<button type="submit" class="cmn-btn btn-block">@lang('Add Story')</button>
 							</form>
 						</div>

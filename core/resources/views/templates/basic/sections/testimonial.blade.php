@@ -3,7 +3,7 @@
     $element = getContent('testimonial.element', false);
 @endphp
     <!-- testimonial section start -->
-<div class="pt-120 pb-120 section--bg bg_img overlay--one" data-background="{{ getImage('assets/images/frontend/testimonial/'. $content->data_values->background_image, '1920x1445')}}">
+<div class="pt-60 pb-60 section--bg bg_img overlay--one" data-background="{{ getImage('assets/images/frontend/testimonial/'. $content->data_values->background_image, '1920x1445')}}">
     <div class="container-fluid">
       <div class="testimonial-slider">
         @foreach ($element as $key => $value)

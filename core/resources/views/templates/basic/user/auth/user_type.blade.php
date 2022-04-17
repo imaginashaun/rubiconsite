@@ -5,7 +5,7 @@
 @endphp
 
 @include($activeTemplate . 'partials.breadcrumb')
-    <div class="pt-120 pb-120">
+    <div class="pt-60 pb-60">
       <div class="container">
         <div class="row justify-content-between mb-none-30">
           <div class="col-lg-3 mb-30">

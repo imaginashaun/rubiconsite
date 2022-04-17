@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.member')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -51,7 +51,7 @@
                             </div>
                         </div><!-- d-widget-two end -->
                     </div>
-                    
+
 
                     <div class="col-xl-4 col-sm-6 mb-30">
                         <div class="d-widget-two d-flex flex-wrap">
@@ -97,7 +97,7 @@
                             </div>
                         </div><!-- d-widget-two end -->
                     </div>
-                     
+
                 </div><!-- row end -->
 
                 <div class="row mt-50">
@@ -135,12 +135,12 @@
                                     <td class="text-muted text-center" colspan="100%">@lang('No Data')</td>
                                 </tr>
                                 @endforelse
-                        
+
                             </tbody>
                         </table>
                     </div>
                 </div>
-                
+
             </div>
         </div><!-- row end -->
     </div>

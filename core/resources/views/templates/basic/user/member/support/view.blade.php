@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.member')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
- <section class="pt-120 pb-120">
+ <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -81,7 +81,7 @@
                             </form>
                         @endif
                     </div>
-                         
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">

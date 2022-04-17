@@ -3,7 +3,7 @@
     $element = getContent('choose_us.element', false, 6);
 @endphp
     <!-- choose us section start -->
-    <section class="pt-120 pb-120 bg_img overlay--one">
+    <section class="pt-60 pb-60 bg_img overlay--one">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">

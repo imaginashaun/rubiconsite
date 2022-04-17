@@ -1,7 +1,7 @@
 @extends($activeTemplate .'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -98,11 +98,11 @@
             }
         }
         #phoneInput .letter:focus {
-            border-color: #ff7300 !important; 
+            border-color: #ff7300 !important;
             box-shadow: 0 0 3px #ff7300 !important;
         }
         #phoneInput .letter:placeholder-shown {
-            border-color: #e5e5e5; 
+            border-color: #e5e5e5;
             color: #363636;
             box-shadow: none;
         }
