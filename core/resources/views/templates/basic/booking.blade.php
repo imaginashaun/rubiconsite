@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -58,7 +58,7 @@
     </div>
   </div>
 </section>
-   
+
 @endsection
 @push('style-lib')
   <link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/datepicker.min.css') }}">

@@ -2,6 +2,16 @@
     $content = getContent('breadcrumb.content', true);
 @endphp
     <!-- inner hero start -->
+
+
+<style>
+
+    .inner-hero {
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+
+    </style>
     <section class="inner-hero bg_img background-position-y-top" data-background="{{ getImage('assets/images/frontend/breadcrumb/'. @$content->data_values->image)}}">
       <div class="container">
         <div class="row justify-content-center">

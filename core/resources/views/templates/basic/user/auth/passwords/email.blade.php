@@ -5,7 +5,7 @@
 @endphp
 
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120 section--bg">
+<section class="pt-60 pb-60 section--bg">
   <div class="container">
     <div class="card">
         <div class="card-body p-0">

@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
- <section class="pt-120 pb-120">
+ <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -19,7 +19,7 @@
                             <input type="hidden" name="email" value="{{ $email }}">
                             <input type="hidden" name="token" value="{{ $token }}">
 
-            
+
                             <div class="form-group">
                                 <label for="password">@lang('Password')</label>
                                 <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Password" required>

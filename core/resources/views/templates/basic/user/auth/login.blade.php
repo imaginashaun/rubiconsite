@@ -5,7 +5,7 @@
 @endphp
 @include($activeTemplate . 'partials.breadcrumb')
     <!-- account section start -->
-    <section class="pt-120 pb-120">
+    <section class="pt-60 pb-60">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10">

@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.member')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
- <section class="pt-120 pb-120">
+ <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="card">
@@ -14,7 +14,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">@lang('Final Step')</h5>
-                                </div> 
+                                </div>
                             <form action="{{$data->url}}" method="{{$data->method}}">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">@lang('Please Pay amount') <span>{{getAmount($deposit->final_amo)}} {{$deposit->method_currency}}</span></li>

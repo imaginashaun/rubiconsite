@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -21,7 +21,7 @@
                             <tbody>
                             @forelse ($image_file as $key => $image)
                                <tr>
-                            
+
                                     <td data-label="@lang('Title')">
                                         <div class="gig-info">
                                             <div class="thumb"> <img src="{{getImage('assets/images/workFile/'. $image->image) }}" alt="image"></div>
@@ -55,7 +55,7 @@
     </div>
 </div>
 </section>
-        
+
 
 <div id="imageModal" class="modal fade" tabindex="-1" role="dialog">
    <div class="modal-dialog modal-lg" role="document">

@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.member')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-120 pb-120">
+<section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -26,7 +26,7 @@
                                                 - {{$data->delay}}</li>
                                         </ul>
                                     </div>
-                                   
+
                                     <a href="javascript:void(0)"  data-id="{{$data->id}}"
                                        data-resource="{{$data}}"
                                        data-min_amount="{{getAmount($data->min_limit)}}"
@@ -36,7 +36,7 @@
                                        data-base_symbol="{{$general->cur_text}}"
                                        class="btn btn-block cmn-btn deposit" data-toggle="modal" data-target="#exampleModal">
                                         @lang('Withdraw Now')</a>
-                                    
+
                                 </div>
                             </div>
                         @endforeach
@@ -69,7 +69,7 @@
                             <input type="hidden" name="currency"  class="edit-currency form-control" value="">
                             <input type="hidden" name="method_code" class="edit-method-code  form-control" value="">
                         </div>
-                        
+
                         <div class="form-group">
                             <label>@lang('Enter Amount'):</label>
                             <div class="input-group">

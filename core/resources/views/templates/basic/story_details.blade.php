@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-  <div class="blog-section pt-120 pb-120">
+  <div class="blog-section pt-60 pb-60">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
