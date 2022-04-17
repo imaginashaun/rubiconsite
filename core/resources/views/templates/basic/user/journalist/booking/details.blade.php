@@ -78,10 +78,12 @@
 {{--                         <button href="#" class="icon-btn bg-dark comment1" data-order_number="{{ $booking_details->order_number }}">Add Comment</button>--}}
 
 {{--                     </div>--}}
-
+@if($booking_details->lastworkDelivery()!=null)
                      <div class="text-right my-2">
                          <a href="#" class="btn bg--6 text-white comment"><i class="las la-plus"></i> @lang('Add a comment')</a>
                      </div>
+
+                     @endif
                     @if(count($booking_details->comments)>0)
                         <hr>
 

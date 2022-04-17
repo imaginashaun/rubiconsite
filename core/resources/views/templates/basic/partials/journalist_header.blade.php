@@ -53,7 +53,11 @@
                         <li><a href="{{route('user.employment.list')}}">@lang('Employment History')</a></li>
                     </ul>
                 </li>
-               <!-- <li> <a href="{{route('ticket')}}">@lang('Get Support')</a></li>-->
+
+                <li class="menu_has_children">  <a style="background-color: #ff7300;padding: 3px;
+" href="{{url('user/journalist/booking/create')}}" class="btn text-white addVideoBtn mt-4 text-center"><i class="las la-plus"></i> @lang('Pitch a Story')</a></li>
+
+            <!-- <li> <a href="{{route('ticket')}}">@lang('Get Support')</a></li>-->
             </ul>
             <div class="nav-right">
               <ul class="account-menu ml-3">
