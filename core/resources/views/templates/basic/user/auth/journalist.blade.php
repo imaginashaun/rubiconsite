@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="account-wrapper">
-            <div class="left base--bg" style="background-image: url('{{getImage('assets/images/bg_quote.png', '350x300')}}')">
+            <div class="left base--bg" style="background-image: url('{{getImage('assets/images/bg_quote_r.png', '350x300')}}')">
              <!-- <div style="width: 400px; background:rgba(0,0,0,0.71); color: #fff">
                   <p style="color: #fff">"The function of journalism is, primarily, to uncover vital new information in the public interest and to put that information in a context so that we can use it to improve the human condition."</p>
                   <p>-- Joshua Oppenheimer</p>
@@ -44,6 +44,8 @@
                 </div>
 
 
+
+
                 <div class="form-group col-lg-6 country-code">
                     <label for="mobile">@lang('Mobile')</label>
                     <div class="input-group ">
@@ -74,6 +76,17 @@
                   <input type="password" id="password_confirm" name="password_confirmation" placeholder="@lang('Confirm Password')" class="form-control">
                 </div>
 
+                  <div class="col-lg-12 text-lg-left">
+                      <p>
+
+                          <b>Important:</b>
+
+
+
+                          @lang('By submitting this form you agree to the terms stated in the') <a href="https://rubiconmedia.group/menu/online-contract/96" class="mt-4 base--color" target="_blank">@lang('Online Contract')</a></p>
+                  </div>
+
+
                 <div class="form-group">
                     @php echo recaptcha() @endphp
                 </div>
@@ -85,6 +98,9 @@
                 <div class="col-lg-6 text-lg-right">
                   <p>@lang('Have an account?') <a href="{{route('user.login')}}" class="mt-4 base--color">@lang('Login')</a></p>
                 </div>
+
+
+
                </div>
 
               </form>
