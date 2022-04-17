@@ -11,6 +11,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav main-menu m-auto">
                 <li> <a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
+
+                <li class="menu_has_children"><a href="#0">@lang('Upload Work')</a>
+                    <ul class="sub-menu">
+                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>
+                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>
+                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>
+                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>
+                    </ul>
+                </li>
                 <li class="menu_has_children"><a href="#0">@lang('Bookings')</a>
                     <ul class="sub-menu blueback">
                         <li><a href="{{ route('user.journalist.booking.list') }}">@lang('All Bookings')</a></li>
@@ -22,14 +31,7 @@
                         <li><a href="{{ route('user.journalist.booking.cancel') }}">@lang('Cancel Booking')</a></li>
                     </ul>
                 </li>
-                <li class="menu_has_children"><a href="#0">@lang('Upload Work')</a>
-                    <ul class="sub-menu">
-                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>
-                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>
-                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>
-                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>
-                    </ul>
-                </li>
+
 
              <!--   <li class="menu_has_children"><a href="#0">@lang('Stories')</a>
                     <ul class="sub-menu">
