@@ -72,13 +72,19 @@
                     </ul>
                      <div class="card-title my-4"><h6>@lang('Description')</h6></div>
                      <div class="card-text">@php echo $booking_details->description @endphp</div>
+
+{{--                     <div class="text-right my-2">--}}
+
+{{--                         <button href="#" class="icon-btn bg-dark comment1" data-order_number="{{ $booking_details->order_number }}">Add Comment</button>--}}
+
+{{--                     </div>--}}
+
+                     <div class="text-right my-2">
+                         <a href="#" class="btn bg--6 text-white comment"><i class="las la-plus"></i> @lang('Add a comment')</a>
+                     </div>
                     @if(count($booking_details->comments)>0)
                         <hr>
-                         <div class="text-right my-2">
 
-                             <a href="#" class="icon-btn bg-dark comment" data-order_number="{{ $booking_details->order_number }}"><i class="las la-comment -loading text-white"></i></a>
-
-                         </div>
 
                          <h4>Comments</h4>
 
