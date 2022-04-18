@@ -137,7 +137,10 @@ class ManageBookingController extends Controller
     {
         $page_title = "Work Submissions Details";
         $booking_details = Booking::where('order_number', $order_number)->with('service')->firstOrFail();
-        return view($this->activeTemplate . 'user.journalist.booking.details', compact('booking_details', 'page_title'));
+
+        $expressions = Expression::where('user_id', Auth::user()->id)->get();
+
+        return view($this->activeTemplate . 'user.journalist.booking.details', compact('booking_details', 'page_title', 'expressions'));
     }
 
 

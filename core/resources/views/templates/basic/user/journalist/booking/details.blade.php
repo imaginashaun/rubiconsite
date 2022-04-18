@@ -123,10 +123,35 @@
 
 
                    <div class="card-footer">
-                   <a href="#" class="btn btn-success expressInterestButton" data-order_number="{{ $booking_details->order_number }}">Express Interest</a>
+                   <a href="#" class="btn btn-success expressInterestButton" data-order_number="{{ $booking_details->order_number }}">Post Expression of Interest</a>
                    </div>
 
+
+
+
                </div><!-- card end -->
+
+                @if(count($expressions)>0)
+
+                    <div class="card">
+
+                        <div class="card-header">
+                        <div class="card-title">
+                            <h4> My Expressions of Interest</h4>
+                        </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            @foreach ($expressions as  $expression)
+                                {{$expression->text}}
+                                @endforeach
+
+                        </div>
+
+                    </div>
+                @endif
+
              </div>
            </div>
          </div>
