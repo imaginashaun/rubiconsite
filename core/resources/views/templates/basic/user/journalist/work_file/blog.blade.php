@@ -72,12 +72,12 @@
 
                 <div class="form-group">
                    <label for="name" class="form-control-label font-weight-bold"> @lang('Blog Link') <span class="text-danger">*</span></label>
-                   <input type="text" class="form-control" id="name" maxlength="200" name="blog_link" value="{{old('blog_link')}}" placeholder="Blog Url" required>
+                   <input type="text" class="form-control" id="name" maxlength="200" name="blog_link" value="{{old('blog_link')}}" placeholder="@lang('Blog Link')" required>
                   </div>
 
                    <div class="form-group">
                        <label for="status" class="form-control-label font-weight-bold">@lang('Descripation') <span class="text-danger">*</span></label>
-                       <textarea class="form-control" rows="4" name="descripation" placeholder="Descripation">{{ old('descripation') }}</textarea>
+                       <textarea class="form-control" rows="4" name="descripation" placeholder="@lang('Descripation')">{{ old('descripation') }}</textarea>
                    </div>
 
                </div>
