@@ -46,7 +46,7 @@ class WorkFileController extends Controller
     public function audioWork()
     {
         $user = Auth::user();
-        $page_title = 'Audio Work list';
+        $page_title = 'Audio';
         $audio_file = JournalistWorkFile::whereNotNull('audio_file')->where('user_id', $user->id)->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.work_file.audio', compact('page_title', 'audio_file'));
     }
@@ -74,7 +74,7 @@ class WorkFileController extends Controller
     public function imageWork()
     {
         $user = Auth::user();
-        $page_title = 'Image Work list';
+        $page_title = 'Images';
         $image_file = JournalistWorkFile::whereNotNull('image')->where('user_id', $user->id)->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.work_file.image', compact('page_title', 'image_file'));
     }
@@ -102,7 +102,7 @@ class WorkFileController extends Controller
     public function blogWork()
     {
         $user = Auth::user();
-        $page_title = 'Blog Work list';
+        $page_title = 'Articles';
         $blog = JournalistWorkFile::whereNotNull('blog_link')->where('user_id', $user->id)->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.work_file.blog', compact('page_title', 'blog'));
     }
@@ -110,7 +110,7 @@ class WorkFileController extends Controller
     public function blogDetails($id)
     {
         $user = Auth::user();
-        $page_title = 'Blog Details';
+        $page_title = 'Article Details';
         $blog_details = JournalistWorkFile::whereNotNull('blog_link')->where('id', $id)->where('user_id', $user->id)->firstOrFail();
         return view($this->activeTemplate . 'user.journalist.work_file.blog_details', compact('page_title', 'blog_details'));
     }
@@ -133,7 +133,7 @@ class WorkFileController extends Controller
       	if(array_key_exists('video', $allRequest))
       	{
         	$this->videoFileUpload($request);
-        	$notify[] = ['success', 'Work video File Create.'];
+        	$notify[] = ['success', 'Video Created.'];
         	return back()->withNotify($notify);
       	}
       	elseif(array_key_exists('audio', $allRequest))
@@ -152,7 +152,7 @@ class WorkFileController extends Controller
       	elseif(array_key_exists('images', $allRequest))
       	{
     		$this->imageFileUpload($request);
-    		$notify[] = ['success', 'Work Image File Create.'];
+    		$notify[] = ['success', 'Image Created.'];
     		return back()->withNotify($notify);
       	}
       	else
@@ -167,26 +167,26 @@ class WorkFileController extends Controller
       	if(array_key_exists('video', $allRequest))
       	{
     		$this->videoFileUpdate($request);
-    	 	$notify[] = ['success', 'Video Link Update.'];
+    	 	$notify[] = ['success', 'Video Link Updated.'];
     		return back()->withNotify($notify);
       	}
       	elseif(array_key_exists('audio', $allRequest))
       	{
     		$this->audioFileUpdate($request);
-    		$notify[] = ['success', 'Audio File Update.'];
+    		$notify[] = ['success', 'Audio File Updated.'];
    			return back()->withNotify($notify);
       	}
       	elseif(array_key_exists('blog', $allRequest))
       	{
     		$this->blogFileUpdate($request);
-    		$notify[] = ['success', 'Blog Update.'];
+    		$notify[] = ['success', 'Article Updated.'];
     		return back()->withNotify($notify);
       	}
 
       	elseif(array_key_exists('images', $allRequest))
       	{
     		$this->imageUpdate($request);
-    		$notify[] = ['success', 'Image File Update.'];
+    		$notify[] = ['success', 'Image Updated.'];
     		return back()->withNotify($notify);
       	}
       	else
