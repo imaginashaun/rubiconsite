@@ -7,7 +7,9 @@
             <div class="col-lg-12">
                <div class="card">
                  <div class="card-body">
-                    <ul class="list-group">
+
+
+                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Service')
                             <span>{{__($booking_details->service->name) }}</span>
@@ -118,6 +120,11 @@
                      @endif
 
                   </div>
+
+
+                   <div class="card-footer">
+                   <a href="#" class="btn btn-success expressInterestButton">Express Interest</a>
+                   </div>
                </div><!-- card end -->
              </div>
            </div>
@@ -160,6 +167,13 @@
   <script>
      'use strict';
       (function($){
+
+          $('.expressInterestButton').on('click', function () {
+              var modal = $('#expressionOfInterest');
+              modal.find('input[name=order_number]').val($(this).data('order_number'))
+              modal.modal('show');
+          });
+
         $(".addVideoBtn").on('click', function(){
              var modal = $('#addModal');
              modal.modal('show');
