@@ -1,6 +1,12 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
+
+<?php
+
+$stories=\App\Booking::where('user_id',\Illuminate\Support\Facades\Auth::id())->get();
+
+?>
 <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
@@ -15,6 +21,7 @@
                                 <tr>
                                     <th>@lang('Title')</th>
                                     <th>@lang('Video')</th>
+                                    <th>@lang('Story')</th>
                                     <th>@lang('Status')</th>
                                     <th>@lang('Action')</th>
                                 </tr>
@@ -29,6 +36,13 @@
                                     </div>
                                 </td>
                                <td data-label="@lang('Video')"><a href="{{ $video->video_file }}" data-rel="lightcase:myCollection" class="btn badge--paid text-white"><i class="las la-play"></i></a></td>
+
+                                <td>
+                                    @if($video->booking)
+                                        {{$video->booking->order_number}}
+                                        @endif
+                                    </td>
+
                                 <td data-label="@lang('Status')">
                                     @if($video->status == 1)
                                         <span class="badge text-white badge--completed">@lang('Approved')</span>
@@ -93,6 +107,23 @@
                         </div>
                     </div>
                 </div>
+
+                   <div class="form-group">
+                       <label class="form-control-label font-weight-bold">@lang('Story') <span class="text-danger">*</span></label>
+                       <div class="input-group mb-3">
+
+
+                           <select class="form-control" name="story_id" required>
+
+                               <option>--Select Story--</option>
+@foreach($stories as $story)
+                           <option value="{{$story->id}}">{{$story->order_number}}</option>
+
+                               @endforeach
+
+                           </select>
+                       </div>
+                   </div>
 
                    <div class="form-group">
                        <label for="status" class="form-control-label font-weight-bold">@lang('Descripation') <span class="text-danger">*</span></label>

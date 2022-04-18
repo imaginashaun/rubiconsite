@@ -1,6 +1,12 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
+
+<?php
+
+$stories=\App\Booking::where('user_id',\Illuminate\Support\Facades\Auth::id())->get();
+
+?>
 <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
@@ -15,6 +21,7 @@
                                 <tr>
                                   <th>@lang('Title')</th>
                                   <th>@lang('Audio')</th>
+                                    <th>@lang('Story')</th>
                                   <th>@lang('Status')</th>
                                   <th>@lang('Action')</th>
                                 </tr>
@@ -25,6 +32,12 @@
                                 <td data-label="@lang('Title')">{{ Str::words($audio->title, 10) }}</td>
                                 <td data-label="@lang('Audio')">
                                   <audio controls src="{{ asset('assets/audio/'.$audio->audio_file )}}"></audio>
+                                </td>
+
+                                <td>
+                                    @if($audio->booking)
+                                        {{$audio->booking->order_number}}
+                                    @endif
                                 </td>
                                 <td data-label="@lang('Status')">
                                   @if($audio->status == 1)
@@ -81,6 +94,23 @@
                       <input type="file" class="custom-file-input" id="inputGroupFile01" name="audio_file" aria-describedby="inputGroupFileAddon01">
                       <label class="custom-file-label" for="inputGroupFile01">@lang('Audio file')</label>
                     </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="form-control-label font-weight-bold">@lang('Story') <span class="text-danger">*</span></label>
+                      <div class="input-group mb-3">
+
+
+                          <select class="form-control" name="story_id" required>
+
+                              <option>--Select Story--</option>
+                              @foreach($stories as $story)
+                                  <option value="{{$story->id}}">{{$story->order_number}}</option>
+
+                              @endforeach
+
+                          </select>
+                      </div>
                   </div>
 
                   <div class="form-group">

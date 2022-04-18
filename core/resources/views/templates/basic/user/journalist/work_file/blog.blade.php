@@ -1,6 +1,12 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
+
+<?php
+
+$stories=\App\Booking::where('user_id',\Illuminate\Support\Facades\Auth::id())->get();
+
+?>
 <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
@@ -14,6 +20,7 @@
                    <thead>
                      <tr>
                        <th>@lang('Title')</th>
+                         <th>@lang('Story')</th>
                        <th>@lang('Blog Link')</th>
                        <th>@lang('Status')</th>
                        <th>@lang('Action')</th>
@@ -23,6 +30,11 @@
                      @forelse ($blog as $key => $value)
                        <tr>
                          <td data-label="@lang('Title')">{{ Str::words($value->title, 10) }}</td>
+                           <td>
+                               @if($value->booking)
+                                   {{$value->booking->order_number}}
+                               @endif
+                           </td>
                          <td data-label="@lang('Blog Link')"><a class="btn bg--5 text-white btn-sm" href="{{ $value->blog_link }}" target="_blank">@lang('Blog Link')</a></td>
                          <td data-label="@lang('Status')">
                            @if($value->status == 1)
@@ -69,6 +81,23 @@
                      <label for="name" class="form-control-label font-weight-bold">@lang('Title') <span class="text-danger">*</span></label>
                      <input type="text" class="form-control" id="name" maxlength="250" name="title" value="{{old('title')}}" placeholder="Enter Title" required>
                  </div>
+
+                   <div class="form-group">
+                       <label class="form-control-label font-weight-bold">@lang('Story') <span class="text-danger">*</span></label>
+                       <div class="input-group mb-3">
+
+
+                           <select class="form-control" name="story_id" required>
+
+                               <option>--Select Story--</option>
+                               @foreach($stories as $story)
+                                   <option value="{{$story->id}}">{{$story->order_number}}</option>
+
+                               @endforeach
+
+                           </select>
+                       </div>
+                   </div>
 
                 <div class="form-group">
                    <label for="name" class="form-control-label font-weight-bold"> @lang('Blog Link') <span class="text-danger">*</span></label>

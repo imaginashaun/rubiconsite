@@ -200,13 +200,15 @@ class WorkFileController extends Controller
         $user = Auth::user();
       	$request->validate([
             'video' => 'required|in:video',
-        	  'title' => 'required|max:250',
-        	  'video_link' =>'required|url|max:250',
-        	  'descripation' => 'required|max:5000',
+            'title' => 'required|max:250',
+            'story_id' => 'required',
+            'video_link' =>'required|url|max:250',
+            'descripation' => 'required|max:5000',
             'background_image' => 'required|mimes:jpeg,png,jpg',
       	]);
       	$uploadeVideo = new JournalistWorkFile();
       	$uploadeVideo->user_id = $user->id;
+        $uploadeVideo->story_id = $request->story_id;
       	$uploadeVideo->title = $request->title;
       	$uploadeVideo->video_file = $request->video_link;
         $path = imagePath()['work_background']['path'];
@@ -261,15 +263,18 @@ class WorkFileController extends Controller
     {
         $user = Auth::user();
       	$request->validate([
-          'audio' => 'required|in:audio',
+                'audio' => 'required|in:audio',
     			'title' => 'required|max:250',
+                'story_id' => 'required',
     			'audio_file' => 'required|mimes:mpeg,mpga,mp3,wav',
     			'descripation' => 'required|max:5000'
     		]);
     		$uploadeaudio = new JournalistWorkFile();
     		$uploadeaudio->user_id = $user->id;
     		$uploadeaudio->title = $request->title;
-    		if($request->hasFile('audio_file')) {
+             $uploadeaudio->story_id = $request->story_id;
+
+        if($request->hasFile('audio_file')) {
                 $file = $request->audio_file;
                 $extension = $file->getClientOriginalExtension();
                 $filename = uniqid().'.'.$extension;
@@ -320,12 +325,14 @@ class WorkFileController extends Controller
     	$request->validate([
             'blog' => 'required|in:blog',
 			'title' => 'required|max:250',
+            'story_id' => 'required',
 			'blog_link' =>'required|url',
 			'descripation' => 'required|max:5000'
 		]);
 		$uploadBlog = new JournalistWorkFile();
 		$uploadBlog->user_id = $user->id;
-		$uploadBlog->title = $request->title;
+        $uploadBlog->story_id = $request->story_id;
+        $uploadBlog->title = $request->title;
 		$uploadBlog->blog_link = $request->blog_link;
 		$uploadBlog->descripation = $request->descripation;
 		$uploadBlog->save();
@@ -358,13 +365,16 @@ class WorkFileController extends Controller
         $request->validate([
             'images' => 'required|in:images',
       		'title' => 'required|max:250',
+            'title' => 'required|max:250',
+            'story_id' => 'required',
       		'image' =>'required|mimes:jpeg,jpg,png,gif|required|max:10000',
       		'descripation' => 'required|max:3000'
       	]);
       	$uploadImage = new JournalistWorkFile;
       	$uploadImage->user_id = $user->id;
       	$uploadImage->title = $request->title;
-      	$path = imagePath()['work_image']['path'];
+        $uploadImage->story_id = $request->story_id;
+        $path = imagePath()['work_image']['path'];
         $size = imagePath()['work_image']['size'];
         if($request->hasFile('image')) {
             try {

@@ -1,6 +1,12 @@
 @extends($activeTemplate.'layouts.journalist')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
+
+<?php
+
+$stories=\App\Booking::where('user_id',\Illuminate\Support\Facades\Auth::id())->get();
+
+?>
 <section class="pt-60 pb-60">
     <div class="container">
         <div class="row justify-content-center">
@@ -14,6 +20,7 @@
                             <thead>
                                 <tr>
                                    <th>@lang('Title')</th>
+                                    <th>@lang('Story')</th>
                                    <th>@lang('Status')</th>
                                    <th>@lang('Action')</th>
                                 </tr>
@@ -28,6 +35,11 @@
                                             <div class="content">{{ Str::words($image->title,10) }}</div>
                                         </div>
                                     </td>
+                                   <td>
+                                       @if($image->booking)
+                                           {{$image->booking->order_number}}
+                                       @endif
+                                   </td>
                                     <td data-label="@lang('Status')">
                                        @if($image->status == 1)
                                          <span class="badge text-white badge--completed">@lang('Approved')</span>
@@ -87,6 +99,23 @@
                        <label class="custom-file-label" for="inputGroupFile01">@lang('Choose Image')</label>
                      </div>
                      </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-control-label font-weight-bold">@lang('Story') <span class="text-danger">*</span></label>
+                       <div class="input-group mb-3">
+
+
+                           <select class="form-control" name="story_id" required>
+
+                               <option>--Select Story--</option>
+                               @foreach($stories as $story)
+                                   <option value="{{$story->id}}">{{$story->order_number}}</option>
+
+                               @endforeach
+
+                           </select>
+                       </div>
                    </div>
 
                    <div class="form-group">

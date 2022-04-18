@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Model;
 
 class JournalistWorkFile extends Model
@@ -11,6 +12,10 @@ class JournalistWorkFile extends Model
 	public function user()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    public function booking(){
+        return $this->belongsTo(Booking::class,'story_id','id');
     }
 
     public function scopeActive()
