@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Journalist;
 
 use App\Comment;
+use App\Expression;
 use App\Http\Controllers\Controller;
 use App\Service;
 use Illuminate\Http\Request;
@@ -146,7 +147,15 @@ class ManageBookingController extends Controller
 
         $user = Auth::user();
         // $booking = Booking::where('order_number', $request->order_number)->where('user_id', $user->id)->firstOrFail();
-      //  $booking = Booking::where('order_number', $request->order_number)->firstOrFail();
+
+
+        $booking = Booking::where('order_number', $request->order_number)->firstOrFail();
+        $expression = new Expression();
+        $expression->text = $request->text;
+        $expression->user_id = $user->id;
+        $expression->booking_id = $booking->id;
+
+        $expression->save();
 
      //   $booking->working_status = 3;
        // $booking->update();

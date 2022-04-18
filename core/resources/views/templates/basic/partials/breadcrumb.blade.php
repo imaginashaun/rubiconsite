@@ -43,7 +43,7 @@
                         <input type="hidden" name="order_number">
 
                         <label for="status" class="form-control-label font-weight-bold">@lang('Expression of Interest') <span class="text-danger">*</span></label>
-                        <textarea class="form-control" rows="4" name="descripation" placeholder="@lang('Hi, I am interested in doing this story...')">{{ old('descripation') }}</textarea>
+                        <textarea class="form-control" rows="4" name="text" placeholder="@lang('Hi, I am interested in doing this story...')">{{ old('descripation') }}</textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg--1 text-white" data-dismiss="modal">@lang('Close')</button>

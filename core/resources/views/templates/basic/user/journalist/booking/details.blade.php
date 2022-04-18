@@ -123,8 +123,9 @@
 
 
                    <div class="card-footer">
-                   <a href="#" class="btn btn-success expressInterestButton">Express Interest</a>
+                   <a href="#" class="btn btn-success expressInterestButton" data-order_number="{{ $booking_details->order_number }}">Express Interest</a>
                    </div>
+
                </div><!-- card end -->
              </div>
            </div>
