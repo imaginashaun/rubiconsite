@@ -117,7 +117,8 @@ $stories=\App\Booking::where('user_id',\Illuminate\Support\Facades\Auth::id())->
 
                                <option>--Select Story--</option>
 @foreach($stories as $story)
-                           <option value="{{$story->id}}">{{$story->order_number}}</option>
+                           <option value="{{$story->id}}">{{$story->title}}</option>
+
 
                                @endforeach
 
