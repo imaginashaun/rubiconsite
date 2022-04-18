@@ -521,6 +521,7 @@ Route::name('user.')->prefix('user')->group(function () {
                 //booking/approved/update
                 Route::get('booking/details/{order_number}', 'ManageBookingController@details')->name('journalist.booking.details');
                 Route::post('booking/approved/update', 'ManageBookingController@approvedBy')->name('journalist.booking.approved.update');
+                Route::post('booking/approved/express', 'ManageBookingController@express')->name('journalist.booking.approved.express');
                 Route::post('booking/cancel/update', 'ManageBookingController@cancelBy')->name('journalist.booking.cancel.update');
 
                 //Work delivery

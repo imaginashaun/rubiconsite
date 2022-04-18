@@ -139,6 +139,21 @@ class ManageBookingController extends Controller
         return view($this->activeTemplate . 'user.journalist.booking.details', compact('booking_details', 'page_title'));
     }
 
+
+    public function express(Request $request)
+    {
+
+
+        $user = Auth::user();
+        // $booking = Booking::where('order_number', $request->order_number)->where('user_id', $user->id)->firstOrFail();
+      //  $booking = Booking::where('order_number', $request->order_number)->firstOrFail();
+
+     //   $booking->working_status = 3;
+       // $booking->update();
+        $notify[] = ['success', 'Expression of Interest Sent!.'];
+        return back()->withNotify($notify);
+    }
+
     public function approvedBy(Request $request)
     {
 
