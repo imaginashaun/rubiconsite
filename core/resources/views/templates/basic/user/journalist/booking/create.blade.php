@@ -12,6 +12,13 @@
                         <div class="card-body">
                             <form action="{{ url('user/journalist/booking/store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
+                                <div class="col-lg-12">
+                                    <label for="title">@lang('Title')</label>
+
+                                            <input type="text" name="title" id="title" placeholder="@lang('Title')" value="{{ old('budget') }}" class="form-control" required="">
+
+                                </div>
                                 <div class="col-lg-12 form-group">
                                     <label for="delivery_date">@lang('Delivery Date')</label>
                                     <input type="text" name="delivery_date" id="delivery_date" class="datepicker-here form-control" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ date('Y-m-d') }}" placeholder="@lang('Select Date')" autocomplete="off" required="">
@@ -29,6 +36,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="col-lg-12 form-group">
                                     <label for="service_id">@lang('Service Type')</label>
                                     <select id="service_id" name="service_id" required>

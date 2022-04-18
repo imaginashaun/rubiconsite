@@ -42,11 +42,13 @@ class ManageBookingController extends Controller
         $gnl= GeneralSetting::first();
         $request->validate([
 'service_id' => 'required|exists:services,id',
+            'title' => 'required|min:1',
             'budget' => 'required|numeric|min:1',
             'delivery_date' => 'required|date|date_format:Y-m-d|after:yesterday',
             'description' => 'required|max:5000',
         ]);
         $booking=new Booking;
+        $booking->title=$request->title;
         $booking->member_id=1;
         $booking->user_id=Auth::user()->id;
         $booking->service_id=$request->service_id;
