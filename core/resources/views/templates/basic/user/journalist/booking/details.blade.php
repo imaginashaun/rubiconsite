@@ -6,6 +6,16 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                <div class="card">
+
+                   <div class="card-header">
+
+                       <div class="card-title">
+
+                           <h4>{{$booking_details->title}}</h4>
+
+                       </div>
+
+                   </div>
                  <div class="card-body">
 
 
@@ -68,14 +78,16 @@
                             <span>{{showDateTime($booking_details->delivery_date, 'd M Y')}}</span>
                         </li>
                     </ul>
-                     <div class="card-title my-4"><h6>@lang('Description')</h6></div>
-                     <div class="card-text">@php echo $booking_details->description @endphp</div>
+
+                     <div class="card-title my-4 px-1"><h6>@lang('Description')</h6></div>
+                     <div class="card-text px-2">@php echo $booking_details->description @endphp</div>
 
 {{--                     <div class="text-right my-2">--}}
 
 {{--                         <button href="#" class="icon-btn bg-dark comment1" data-order_number="{{ $booking_details->order_number }}">Add Comment</button>--}}
 
 {{--                     </div>--}}
+
 @if($booking_details->lastworkDelivery()!=null)
                      <div class="text-right my-2">
                          <a href="#" class="btn bg--6 text-white comment"><i class="las la-plus"></i> @lang('Add a comment')</a>
@@ -137,7 +149,7 @@
 
                         <div class="card-header">
                         <div class="card-title">
-                            <h4> My Expressions of Interest</h4>
+                            <h4> My Expression of Interest</h4>
                         </div>
                         </div>
 
