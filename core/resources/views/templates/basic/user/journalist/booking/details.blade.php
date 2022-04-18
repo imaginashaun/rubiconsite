@@ -13,10 +13,6 @@
                             <span>{{__($booking_details->service->name) }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            @lang('Member Username')
-                            <span>{{$booking_details->member->username}}</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Budget')
                             <span>{{getAmount($booking_details->budget)}} {{$general->cur_text}}</span>
                         </li>
