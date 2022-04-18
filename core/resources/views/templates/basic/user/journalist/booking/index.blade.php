@@ -14,20 +14,21 @@
                         <table class="table style--two white-space-nowrap">
                          <thead>
                             <tr>
+                                <th>@lang('Title')</th>
                                 <th>@lang('Order Number')</th>
-                                <th>@lang('Member')</th>
                                 <th>@lang('Budget')</th>
                                 <th>@lang('Delivery Date')</th>
                                 <th>@lang('Status')</th>
                                 <th>@lang('Working Status')</th>
+                                <th>@lang('Added Date')</th>
                                 <th>@lang('Action')</th>
                             </tr>
                          </thead>
                          <tbody>
                            @forelse ($booking as  $book)
                             <tr>
+                                <td data-label="@lang('Order Number')">{{ __($book->title) }}</td>
                                 <td data-label="@lang('Order Number')">{{ __($book->order_number) }}</td>
-                                <td data-label="@lang('Member')">{{$book->member->username}}</td>
                                 <td data-label="@lang('Budget')">{{getAmount($book->budget) }} {{ $general->cur_text }}</td>
                                 <td data-label="@lang('Delivery Date')">{{showDateTime($book->delivery_date, 'd M Y')}}</td>
                                 <td data-label="@lang('Status')">
@@ -67,8 +68,10 @@
                                          <span class="badge text-white badge--deliverdlate">@lang('Delivery Expired')</span>
                                     @endif
                                </td>
+                                <td data-label="@lang('Added Date')">{{showDateTime($book->created_at, 'd M Y')}}</td>
 
-                               <td data-label="@lang('Action')">
+
+                                <td data-label="@lang('Action')">
                                   <a href="{{ route('user.journalist.booking.details', $book->order_number)}}" class="icon-btn bg--2"><i class="las la-desktop text-white"></i></a>
                                   @if($book->working_status == 0)
                                     <!--  <a href="#" class="icon-btn bg--5 approvedBtn" data-order_number="{{ $book->order_number }}"><i class="las la-check text-white"></i></a>-->
