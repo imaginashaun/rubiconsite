@@ -186,7 +186,7 @@
                             @lang('Work File No Delivery')
                         </div>
                       @endforelse
-                 @if(count($booking->workDelivery)>0)
+                    @if($booking->user_id)
                         <div class="col-md-12 text-center">
                         <button  class="btn btn--success btn-sm m-2 text-center commentBtn">@lang('Add Comment')</button>
                     </div>
@@ -220,6 +220,7 @@
                                 </tbody>
                             </table><!-- table end -->
                         </div>
+
 
 @endif
 
