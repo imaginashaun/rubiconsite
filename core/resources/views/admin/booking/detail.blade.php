@@ -35,6 +35,7 @@
                 </div>
             </div>
 
+            @if($booking->user_id)
             <div class="card b-radius--10 overflow-hidden mt-30 box--shadow1">
                 <div class="card-body">
                     <h5 class="mb-20 text-muted">@lang('Journalist Information')</h5>
@@ -80,11 +81,23 @@
                     </ul>
                 </div>
             </div>
+            @endif
+
+
         </div>
 
         <div class="col-xl-9 col-lg-7 col-md-7 mb-30">
             <div class="card">
+
+
+
                 <div class="card-body">
+
+                    <div class="card-title">
+                        <h4>{{$booking->title}}</h4>
+
+                    </div>
+
                      <ul class="list-group">
                          <li class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">
                             @lang('Service')
@@ -152,18 +165,22 @@
                     <div class="card-text">{{ $booking->lastworkDelivery()->approval_status }}</div>
 
                 @endif
-                     <div class="card-title text-center my-3"><h6>@lang('Work Delivery')</h6></div>
+
+                    <hr>
+                     <div class="card-title mt-3">
+                         <h6>@lang('Work Delivery')</h6>
+                     </div>
                       @forelse($booking->workDelivery as $value)
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-12">
                             <p class="mb-2">@lang('Delivery Details')</p>
                             <p>{{$value->details}}</p>
                         </div>
-                        <div class="col-md-12 text-center">
-                            <a href="{{ route('admin.delivery.workFile.download', $value->id) }}" class="btn btn--success btn-sm m-2 text-center">@lang('Download File')</a>
+                        <div class="col-md-12">
+                            <a href="{{ route('admin.delivery.workFile.download', $value->id) }}" class="btn btn--success btn-sm">@lang('Download File')</a>
                         </div>
                       @empty
-                        <div class="col-md-12 text-center">
-                            <p>@lang('Work File No Delivery')</p>
+                        <div class="card-title mt-3">
+                            @lang('Work File No Delivery')
                         </div>
                       @endforelse
                  @if(count($booking->workDelivery)>0)
@@ -201,16 +218,61 @@
                             </table><!-- table end -->
                         </div>
 
-
-
 @endif
 
                 </div>
                 </div>
+
+
+            <div class="card mt-2">
+
+                <div class="card-body">
+
+                    <div class="card-title">
+                        <h4>@lang('Expression of Interest')</h4>
+
+                    </div>
+
+
+                    <table class="table table--light style--two">
+                        <thead>
+                        <tr>
+
+                            <th scope="col">@lang('Journalist')</th>
+                            <th scope="col"></th>
+                            <th scope="col">@lang('Date')</th>
+
+                            <th scope="col">@lang('Action')</th>
+                        </tr>
+                        </thead>
+
+                        @foreach($expressions as $expression)
+                            <tr>
+                                <td data-label="@lang('Journalist')">
+
+                                    <a href="{{ route('admin.users.account', $expression->journalist_id)}}">
+                                    {{$expression->username}}
+                                    </a>
+                                </td>
+
+                                <td data-label="@lang('')">{{$expression->text}}</td>
+
+                                <td data-label="@lang('Date')">{{showDateTime($expression->created_at, 'd M Y')}}</td>
+
+                                <td data-label="@lang('Action')"><a href="#" data-id="{{$booking->id}}" data-userid="{{$expression->journalist_id}}" class="awardjournalist btn btn-success">Award</a></td>
+                            </tr>
+                            @endforeach
+
+                    </table>
+
+                </div>
+
+            </div>
+
               </div>
           </div>
-      </div>
-  </div>
+
+
     <div class="modal fade" id="rejectwork" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -265,6 +327,33 @@
         </div>
     </div>
 </div>
+
+
+    <div class="modal fade" id="awardJournalist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Award this Journalist')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('admin.send.money.awardthejournalist')}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input type="hidden" name="booking_id">
+                    <input type="hidden" name="user_id">
+                    <div class="modal-body">
+                        <p>@lang('Are you sure you would like to award the work to this journalist?')</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('No')</button>
+                        <button type="submit" class="btn btn--success">@lang('Yes')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -372,6 +461,14 @@
          $('.journalist').on('click', function () {
             var modal = $('#sellerPayment');
             modal.find('input[name=id]').val($(this).data('id'))
+            modal.modal('show');
+        });
+
+
+         $('.awardjournalist').on('click', function () {
+            var modal = $('#awardJournalist');
+            modal.find('input[name=booking_id]').val($(this).data('id'))
+            modal.find('input[name=user_id]').val($(this).data('userid'))
             modal.modal('show');
         });
 

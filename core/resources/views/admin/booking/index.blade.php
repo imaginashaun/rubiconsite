@@ -14,13 +14,15 @@ $members=\App\User::all();
                             <thead>
                             <tr>
                                 <th scope="col">@lang('ID')</th>
-                                <th scope="col">@lang('Member Name')</th>
-                                <th scope="col">@lang('Journalist Username')</th>
-                                <th scope="col">@lang('Booking Number')</th>
+                                <th scope="col">@lang('Title')</th>
+                                <th scope="col">@lang('Journalist')</th>
+                                <th scope="col">@lang('Order Number')</th>
                                 <th scope="col">@lang('Budget')</th>
                                 <th scope="col">@lang('Delivery Date')</th>
                                 <th scope="col">@lang('Working Status')</th>
                                 <th scope="col">@lang('Status')</th>
+                                <th scope="col">@lang('Creation Date')</th>
+
                                 <th scope="col">@lang('Action')</th>
                             </tr>
                             </thead>
@@ -28,17 +30,25 @@ $members=\App\User::all();
                             @forelse($bookings as $booking)
                             <tr>
                                 <td data-label="@lang('Id')">{{$loop->iteration}}</td>
-                                <td data-label="@lang('Member Name')">
+                               <!-- <td data-label="@lang('Member Name')">
                                   <a href="{{ route('admin.member.users.detail', $booking->member_id) }}">{{ $booking->member->username }}</a>
+                                </td>-->
+
+
+                                <td data-label="@lang('Title')">
+
+                                    {{$booking->title}}
                                 </td>
+
                                 <td data-label="@lang('Journalist')">
 
                                     @if($booking->user_id)
                                   <a href="{{ route('admin.users.detail', $booking->user_id) }}">{{ $booking->journalist->username }}</a>
-
+                                    @else
+                                        None
                                         @endif
                                 </td>
-                                <td data-label="@lang('Booking Number')">{{$booking->order_number}}</td>
+                                <td data-label="@lang('Order Number')">{{$booking->order_number}}</td>
                                 <td data-label="@lang('Budget')">{{getAmount($booking->budget)}} {{$general->cur_text }}</td>
                                 <td data-label="@lang('Delivery Date')">{{showDateTime($booking->delivery_date, 'd M Y')}}</td>
                                 <td data-label="@lang('Working Status')">
@@ -61,7 +71,7 @@ $members=\App\User::all();
                                         <span class="font-weight-normal badge--danger">@lang('Delivery Expired')</span>
                                     @endif
                               </td>
-                              <td data-label="@lang('Status')">
+                                <td data-label="@lang('Status')">
                                     @if($booking->status == 1)
                                         <span class="font-weight-normal badge--success">@lang('Running')</span>
                                     @elseif($booking->status == 2)
@@ -78,12 +88,15 @@ $members=\App\User::all();
                                       <span class="font-weight-normal badge--warning">@lang('Pending Approval')</span>
                                     @endif
                                </td>
-
+                                <td data-label="@lang('Creation Date')">{{showDateTime($booking->created_at, 'd M Y')}}</td>
                                 <td data-label="@lang('Action')">
                                     @if($booking->user_id)
-                                    <a href="{{route('admin.booking.detail', $booking->id)}}" class="icon-btn btn--primary" data-toggle="tooltip" title="" data-original-title="Details">
-                                      <i class="las la-desktop text--shadow"></i>
-                                    </a>
+
+
+
+                                        <a href="{{route('admin.booking.detail', $booking->id)}}" class="btn btn-primary">
+                                            <i class="las la-desktop text--shadow"></i> Review
+                                        </a>
 
                                   <!--    @if($booking->status == 7)
                                             <form action="{{route('admin.users.booking.approve')}}" method="POST">
@@ -96,7 +109,16 @@ $members=\App\User::all();
                                             </form>
                                           @endif
 -->
+                                    @else
+
+
+                                        <a href="{{route('admin.booking.detail', $booking->id)}}" class="btn btn-warning">
+                                            <i class="las la-desktop text--shadow"></i>    View
+                                        </a>
+
                                         @endif
+
+
                                 </td>
                             </tr>
                             @empty

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Expression;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Booking;
@@ -26,7 +27,13 @@ class BookingController extends Controller
     {
         $page_title = "Booking Details";
         $booking = Booking::findOrFail($id);
-        return view('admin.booking.detail', compact('page_title', 'booking'));
+        $expressions = Expression::where('booking_id', $id)->join('users', 'expressions.user_id', '=', 'users.id')    ->select('users.id AS journalist_id', 'users.username AS username','expressions.*')->get();
+
+
+
+//        return $expressions->toJson(JSON_PRETTY_PRINT);
+
+        return view('admin.booking.detail', compact('page_title', 'booking', 'expressions'));
     }
 
     public function pending()
@@ -145,6 +152,25 @@ class BookingController extends Controller
         return view('admin.booking.index', compact('page_title', 'search', 'scope', 'empty_message', 'bookings'));
     }
 
+    public function awardJournalist(Request $request)
+    {
+
+        $booking = Booking::find($request->booking_id);
+        $booking->user_id = $request->user_id;
+
+        if($booking->working_status == 3){
+            $booking->working_status = 1;
+
+        }else{
+            $booking->working_status = 3;
+
+        }
+        //$booking->status = 1;
+        $booking->save();
+
+        $notify[] = ['success', 'Journalist Awarded.'];
+        return back()->withNotify($notify);
+    }
 
     public function sendMoneyJournalist(Request $request)
     {

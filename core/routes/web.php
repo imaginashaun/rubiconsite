@@ -208,6 +208,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('booking/{scope}/search', 'BookingController@search')->name('booking.search');
         Route::get('booking/delivery/workFile/download/{id}', 'BookingController@workDeliveryFailDownload')->name('delivery.workFile.download');
         Route::post('send/money/journalist', 'BookingController@sendMoneyJournalist')->name('send.money.journalist');
+        Route::post('send/money/awardjournalist', 'BookingController@awardJournalist')->name('send.money.awardthejournalist');
         Route::post('returned/money/member', 'BookingController@refundMoneyMember')->name('refund.money.member');
 
 
