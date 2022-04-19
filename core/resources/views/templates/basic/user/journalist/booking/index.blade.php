@@ -18,8 +18,8 @@
                                 <th>@lang('Order Number')</th>
                                 <th>@lang('Budget')</th>
                                 <th>@lang('Delivery Date')</th>
+                               <!-- <th>@lang('Status')</th>-->
                                 <th>@lang('Status')</th>
-                                <th>@lang('Working Status')</th>
                                 <th>@lang('Added Date')</th>
                                 <th>@lang('Action')</th>
                             </tr>
@@ -31,7 +31,7 @@
                                 <td data-label="@lang('Order Number')">{{ __($book->order_number) }}</td>
                                 <td data-label="@lang('Budget')">{{getAmount($book->budget) }} {{ $general->cur_text }}</td>
                                 <td data-label="@lang('Delivery Date')">{{showDateTime($book->delivery_date, 'd M Y')}}</td>
-                                <td data-label="@lang('Status')">
+                              <!--  <td data-label="@lang('Status')">
                                   @if($book->status == 1)
                                       <span class="badge text-white badge--completed">@lang('Running')</span>
                                   @elseif($book->status == 2)
@@ -45,7 +45,7 @@
                                   @elseif($book->status == 6)
                                       <span class="badge text-white badge--inprogress">@lang('Refund')</span>
                                   @endif
-                                </td>
+                                </td>-->
                                 <td data-label="@lang('Working Status')">
                                     @if($book->working_status == 0)
                                         <span class="badge text-white badge--pending">@lang('Pending')</span>
@@ -75,13 +75,11 @@
                                   <a href="{{ route('user.journalist.booking.details', $book->order_number)}}" class="icon-btn bg--2"><i class="las la-desktop text-white"></i></a>
                                   @if($book->working_status == 0)
                                     <!--  <a href="#" class="icon-btn bg--5 approvedBtn" data-order_number="{{ $book->order_number }}"><i class="las la-check text-white"></i></a>-->
-                                      <a href="#" class="icon-btn bg--5 approvedBtn" data-order_number="{{ $book->order_number }}"><i class="las la-check text-white"></i></a>
-                                      <a href="#" class="icon-btn bg--1 cancelbtn" data-order_number="{{ $book->order_number }}"><i class="las la-times text-light"></i></a>
+                                   <!--   <a href="#" class="icon-btn bg--5 approvedBtn" data-order_number="{{ $book->order_number }}"><i class="las la-check text-white"></i></a>-->
+                                    <!--  <a href="#" class="icon-btn bg--1 cancelbtn" data-order_number="{{ $book->order_number }}"><i class="las la-times text-light"></i></a>-->
                                   @elseif($book->working_status == 2 || $book->working_status == 3)
                                       <a href="#" class="icon-btn bg-dark workFile" data-order_number="{{ $book->order_number }}"><i class="las la-truck-loading text-white"></i></a>
                                        <a href="#" class="icon-btn bg-dark comment" data-order_number="{{ $book->order_number }}"><i class="las la-comment -loading text-white"></i></a>
-
-
                                   @endif
 
                                </td>

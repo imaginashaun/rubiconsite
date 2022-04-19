@@ -37,6 +37,9 @@
 
             @if($booking->user_id)
             <div class="card b-radius--10 overflow-hidden mt-30 box--shadow1">
+
+                <a href="#" data-id="{{$booking->id}}" data-userid="{{$booking->journalist->id}}" class="completeWork btn btn-warning">Complete Work</a>
+
                 <div class="card-body">
                     <h5 class="mb-20 text-muted">@lang('Journalist Information')</h5>
                     <ul class="list-group">
@@ -224,6 +227,9 @@
                 </div>
 
 
+
+
+            @if(!$booking->user_id)
             <div class="card mt-2">
 
                 <div class="card-body">
@@ -268,6 +274,7 @@
                 </div>
 
             </div>
+            @endif
 
               </div>
           </div>
@@ -345,6 +352,32 @@
                     <input type="hidden" name="user_id">
                     <div class="modal-body">
                         <p>@lang('Are you sure you would like to award the work to this journalist?')</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('No')</button>
+                        <button type="submit" class="btn btn--success">@lang('Yes')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="completeWork" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="" lass="modal-title" id="exampleModalLabel">@lang('Work Completed')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('admin.send.money.awardthejournalist')}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input type="hidden" name="booking_id">
+                    <input type="hidden" name="user_id">
+                    <div class="modal-body">
+                        <p>@lang('Was the work completed to your satisfaction and you would like to close the project?')</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('No')</button>
@@ -464,9 +497,17 @@
             modal.modal('show');
         });
 
-
          $('.awardjournalist').on('click', function () {
             var modal = $('#awardJournalist');
+            modal.find('input[name=booking_id]').val($(this).data('id'))
+            modal.find('input[name=user_id]').val($(this).data('userid'))
+            modal.modal('show');
+        });
+
+
+
+        $('.completeWork').on('click', function () {
+            var modal = $('#completeWork');
             modal.find('input[name=booking_id]').val($(this).data('id'))
             modal.find('input[name=user_id]').val($(this).data('userid'))
             modal.modal('show');

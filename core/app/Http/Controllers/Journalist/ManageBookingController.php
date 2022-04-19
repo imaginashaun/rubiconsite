@@ -27,7 +27,8 @@ class ManageBookingController extends Controller
         $user = Auth::user();
         $page_title = "All Work Submissions";
         $empty_message  = "No Data Found";
-        $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->with('member')->latest()->paginate(getPaginate());
+       // $booking = Booking::where('user_id', $user->id)->where('status', '!=', 0)->with('member')->latest()->paginate(getPaginate());
+        $booking = Booking::where('user_id', 0)->orWhere('user_id', $user->id)->where('status', '!=', 0)->with('member')->latest()->paginate(getPaginate());
         return view($this->activeTemplate . 'user.journalist.booking.index', compact('page_title', 'empty_message', 'booking'));
     }
     public function create()
