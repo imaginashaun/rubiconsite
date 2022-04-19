@@ -54,9 +54,9 @@ class ManageUsersController extends Controller
             return back()->withNotify($notify);
         }
 
-
         $booking=new Booking;
         $booking->member_id=1;
+        $booking->title=$request->title;
         $booking->service_id=$request->service_id;
         $booking->description=$request->description;
         $booking->delivery_date=$request->delivery_date;

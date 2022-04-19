@@ -165,6 +165,19 @@ $members=\App\User::all();
             <form action="{{ route('admin.users.booking.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
+
+
+                    <div class="form-group">
+                        <label for="title" class="form-control-label font-weight-bold">@lang('Title') <span class="text-danger">*</span></label>
+
+                        {{--                        <div class="input-group-prepend">--}}
+                        {{--                            <div class="input-group-text">{{ __($general->cur_text) }}</div>--}}
+                        {{--                        </div>--}}
+
+                        <input type="text" class="form-control" id="title" maxlength="191" name="title" value="{{old('title')}}"required placeholder="@lang('Title')">
+                    </div>
+
+
 {{--                    <div class="form-group">--}}
 {{--                        <label for="name" class="form-control-label font-weight-bold">@lang('Member') <span class="text-danger">*</span></label>--}}
 
@@ -207,10 +220,7 @@ $members=\App\User::all();
                     <div class="form-group">
                         <label for="name" class="form-control-label font-weight-bold">@lang('Description') <span class="text-danger">*</span></label>
 
-                  <textarea name="description" required class="form-control">
-
-
-                  </textarea>
+                  <textarea name="description" required class="form-control"></textarea>
 
                     </div>
                 </div>

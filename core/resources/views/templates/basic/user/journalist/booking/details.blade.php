@@ -152,11 +152,25 @@
                         </div>
 
                         <div class="card-body">
+                            <ul class="list-group">
 
                             @foreach ($expressions as  $expression)
-                                {{$expression->text}}
+
+                                <div class="card">
+
+                               <div class="card-body">
+
+                                   <li class="list-group-item">
+                                       <small>
+                                           {{showDateTime($expression->created_at, 'd M Y') }}
+                                       </small>
+                                       <p> {{$expression->text}}</p></li>
+                               </div>
+
+                                </div>
                                 @endforeach
 
+                            </ul>
                         </div>
 
                     </div>
