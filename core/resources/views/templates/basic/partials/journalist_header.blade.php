@@ -11,15 +11,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav main-menu m-auto">
                 <li> <a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
-
-                <li class="menu_has_children"><a href="#0">@lang('Upload Work')</a>
-                    <ul class="sub-menu">
-                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>
-                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>
-                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>
-                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>
-                    </ul>
-                </li>
+{{--                <li class="menu_has_children"><a href="#0">@lang('Upload Work')</a>--}}
+{{--                    <ul class="sub-menu">--}}
+{{--                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>--}}
+{{--                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>--}}
+{{--                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>--}}
+{{--                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="menu_has_children"><a href="#0">@lang('Bookings')</a>
                     <ul class="sub-menu blueback">
                         <li><a href="{{ route('user.journalist.booking.list') }}">@lang('All Bookings')</a></li>
@@ -33,10 +32,10 @@
                 </li>
 
 
-             <!--   <li class="menu_has_children"><a href="#0">@lang('Stories')</a>
+             <!--   <li class="menu_has_children"><a href="#0">@lang('Projects')</a>
                     <ul class="sub-menu">
-                        <li><a href="{{route('user.storie.create')}}">@lang('Add Story')</a></li>
-                        <li><a href="{{route('user.storie.index')}}">@lang('All Stories')</a></li>
+                        <li><a href="{{route('user.storie.create')}}">@lang('Add Project')</a></li>
+                        <li><a href="{{route('user.storie.index')}}">@lang('All Projects')</a></li>
                     </ul>
                 </li>-->
 
@@ -56,8 +55,16 @@
                     </ul>
                 </li>
 
-                <li class="">  <a style="background-color: #ff7300;padding: 3px;
-" href="{{url('user/journalist/booking/create')}}" class="btn text-white addVideoBtn mt-4 text-center"><i class="las la-plus"></i> @lang('Pitch a Story')</a></li>
+                <li class="menu_has_children">               <a style="background-color: #ff7300;padding: 3px;
+" href="#" class="btn text-white addVideoBtn mt-4 text-center"><i class="las la-plus"></i> @lang('Upload Work')</a>
+                    <ul class="sub-menu">
+                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>
+                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>
+                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>
+                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>
+                    </ul>
+
+     </li>
 
             <!-- <li> <a href="{{route('ticket')}}">@lang('Get Support')</a></li>-->
             </ul>
