@@ -10,11 +10,25 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="account-wrapper">
-            <div class="left base--bg" style="background-image: url('{{getImage('assets/images/bg_quote_r.png', '350x300')}}')">
-             <!-- <div style="width: 400px; background:rgba(0,0,0,0.71); color: #fff">
-                  <p style="color: #fff">"The function of journalism is, primarily, to uncover vital new information in the public interest and to put that information in a context so that we can use it to improve the human condition."</p>
-                  <p>-- Joshua Oppenheimer</p>
-              </div>-->
+            <div class="left base--bg" style="background-image: url('{{getImage('assets/images/bg_orange.png', '350x310')}}'); background-size: cover; color: #fff; display: block; padding: 10px !important;">
+
+
+                <h4 style="color: #fff">SUMMARIZED TERMS OF USE</h4><hr>
+                <p>
+                    Contributors must strictly submit original and verifiable content. By submitting Content, the Contributor warrants and confirms that he or she is the sole creator of the Content and has the right to use, copy, distribute and transfer ownership without limitation.
+                    Plagiarism, fabrication, misinformation and any other unethical conduct will result in the forfeiture of earnings and blacklisting.
+                    Contributors must deliver work within the agreed deadlines. A 20% late submission fee will be levelled for submissions that fall outside agreed deadlines.
+                    Contributors are expected to provide further iterations on the work delivered if the RAMP administrators are not initially satisfied by the submissions. Only content accepted by the Company for publication will be paid for.
+                    Contributors must provide regular progress updates and respond within four (4) hours to all communication from the RAMP administrators.
+                    Where a project is time sensitive, failure to meet deadlines may result in the project being rejected and no payment being given.
+
+                    Contributors will be penalised for cancellations caused by them, without just reason.
+
+                    Once the work has been completed, submitted and accepted by the Company, the Contributor will receive payment within 30 days.
+
+                </p>
+                <p> <b>Read full <a href="./menu/terms-and-conditions/79" target="_blank" style="color:#fff !important; text-decoration: underline !important;">Terms and Conditions</a></b></p>
+
           </div>
           <div class="right">
             <div>
