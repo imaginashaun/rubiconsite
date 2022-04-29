@@ -67,14 +67,21 @@
      {{--</li>--}}
 
 
-                <li class="menu_has_children">               <a style="background-color: transparent;padding: 3px;  border-color:white;
+                <li class="menu_has_children">               <a style="background-color: transparent;padding: 5px;  border-color:white;
 
 " href="{{url('user/journalist/booking/create')}}" class="btn text-white addVideoBtn mt-4 text-center"> @lang('Pitch A Story')</a>
 
 
                 </li>
 
-                <li> <a style="color: #ff7300" href="{{route('user.journalist.booking.pending')}}">@lang('Available Work')</a></li>
+                <li class="menu_has_children">               <a style="background-color: transparent;padding: 5px;  border-color:#ff7300;
+
+" href="{{url('user.journalist.booking.pending')}}" class="btn text-white addVideoBtn mt-4 text-center"> @lang('Available Work')</a>
+
+
+                </li>
+
+                {{--<li> <a style="color: #ff7300" href="{{route('user.journalist.booking.pending')}}">@lang('Available Work')</a></li>--}}
 
 
             <!-- <li> <a href="{{route('ticket')}}">@lang('Get Support')</a></li>-->

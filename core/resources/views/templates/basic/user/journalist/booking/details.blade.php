@@ -133,7 +133,7 @@
 
 
                    <div class="card-footer">
-                   <a href="#" class="btn btn-success expressInterestButton" data-order_number="{{ $booking_details->order_number }}">Post Expression of Interest</a>
+                   <a href="#" class="btn btn-success expressInterestButton" data-order_number="{{ $booking_details->order_number }}">Send Expression of Interest</a>
                    </div>
 
 

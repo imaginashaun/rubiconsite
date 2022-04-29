@@ -145,7 +145,7 @@
           <div class="pt-5">
 
 
-          <h4 style="color: #000000">SUMMARIZED TERMS OF USE</h4><hr/>
+          <h4 style="color: #000000">SUMMARISED TERMS OF USE</h4><hr/>
               <p style=" text-align: justify;
   text-justify: inter-word;">
              Contributors must strictly submit original and verifiable content. By submitting Content, the Contributor warrants and confirms that he or she is the sole creator of the Content and has the right to use, copy, distribute and transfer ownership without limitation. Plagiarism, fabrication, misinformation and any other unethical conduct will result in the forfeiture of earnings and blacklisting. Contributors must deliver work within the agreed deadlines. A 20% late submission fee will be levelled for submissions that fall outside agreed deadlines. Contributors are expected to provide further iterations on the work delivered if the RAMP administrators are not initially satisfied by the submissions. Only content accepted by the Company for publication will be paid for.

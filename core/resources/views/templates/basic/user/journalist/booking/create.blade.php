@@ -14,20 +14,20 @@
                                 @csrf
 
                                 <div class="col-lg-12">
-                                    <label for="title">@lang('Title Of Report')</label>
+                                    <label for="title">@lang('Subject Title')</label>
 
-                                            <input type="text" name="title" id="title" placeholder="@lang('Title')" value="{{ old('budget') }}" class="form-control" required="">
+                                            <input type="text" name="title" id="title" placeholder="@lang('Subject Title')" value="{{ old('title') }}" class="form-control" required="">
 
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label for="delivery_date">@lang('Date Due')</label>
+                                    <label for="delivery_date">@lang('Submission Date')</label>
                                     <input type="text" name="delivery_date" id="delivery_date" class="datepicker-here form-control" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ date('Y-m-d') }}" placeholder="@lang('Select Date')" autocomplete="off" required="">
                                 </div>
 
                                 <div class="col-lg-12 form-group">
-                                    <label for="budget" class="ml-3">@lang('Amount of offer')</label>
+                                    <label for="budget" class="ml-3">@lang('Selling Price')</label>
                                     <div class="col-auto">
-                                        <label class="sr-only" for="inlineFormInputGroup">@lang('Amount of offer')</label>
+                                        <label class="sr-only" for="inlineFormInputGroup">@lang('Selling Price')</label>
                                         <div class="input-group mb-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">{{ __($general->cur_text) }}</div>
