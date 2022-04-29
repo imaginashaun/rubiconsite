@@ -146,11 +146,12 @@
 
 
           <h4 style="color: #000000">SUMMARIZED TERMS OF USE</h4><hr/>
-              <p>
+              <p style=" text-align: justify;
+  text-justify: inter-word;">
              Contributors must strictly submit original and verifiable content. By submitting Content, the Contributor warrants and confirms that he or she is the sole creator of the Content and has the right to use, copy, distribute and transfer ownership without limitation. Plagiarism, fabrication, misinformation and any other unethical conduct will result in the forfeiture of earnings and blacklisting. Contributors must deliver work within the agreed deadlines. A 20% late submission fee will be levelled for submissions that fall outside agreed deadlines. Contributors are expected to provide further iterations on the work delivered if the RAMP administrators are not initially satisfied by the submissions. Only content accepted by the Company for publication will be paid for.
-              Contributors must provide regular progress updates and respond within four (4) hours to all communication from the RAMP administrators. Where a project is time sensitive, failure to meet deadlines may result in the project being rejected and no payment being given. Contributors will be penalised for cancellations caused by them, without just reason. Once the work has been completed, submitted and accepted by the Company, the Contributor will receive payment within 30 days.
+              Contributors must provide regular progress updates and respond within four (4) hours to all communication from the RAMP administrators. Where a project is time sensitive, failure to meet deadlines may result in the project being rejected and no payment being given. Contributors will be penalised for cancellations caused by them, without just reason. Once the work has been completed, submitted and accepted by the Company, the Contributor will receive payment within 30 days.<b>Read full <a href="./menu/terms-and-conditions/79" target="_blank" style="color:#fff !important; text-decoration: underline !important;"><b style="color: blue">Terms and Conditions.</b></a></b>
               </p>
-              <p> <b>Read full <a href="./menu/terms-and-conditions/79" target="_blank" style="color:#fff !important; text-decoration: underline !important;"><b style="color: blue">Terms and Conditions</b></a></b></p>
+
           </div>
       </div>
     </div>
