@@ -30,7 +30,7 @@
             <div class="row mt-3">
                 <div class="col-lg-12">
                     <hr>
-                    <p class="copy-right-text text-white text-center">@lang('Copyright') © {{Carbon\Carbon::now()->year}} | @lang('All Right Reserved')</p>
+                    <p class="copy-right-text text-white text-center">@lang('Copyright') © {{Carbon\Carbon::now()->year}} | @lang('All Rights Reserved')</p>
                 </div>
             </div>
         </div>

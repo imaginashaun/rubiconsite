@@ -48,7 +48,7 @@
 
               <!--  <li> <a href="{{route('user.transaction.log')}}">@lang('Transaction')</a></li>-->
 
-                 <li class="menu_has_children"><a href="#0">@lang('Settings')</a>
+                 <li class="menu_has_children"><a href="#0">@lang('Credentials')</a>
                     <ul class="sub-menu">
                         <li><a href="{{route('user.education.list')}}">@lang('Education History')</a></li>
                         <li><a href="{{route('user.employment.list')}}">@lang('Employment History')</a></li>

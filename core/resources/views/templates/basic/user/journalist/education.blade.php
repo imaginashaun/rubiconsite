@@ -15,7 +15,7 @@
                                 <tr>
                                     <th scope="col">@lang('Id')</th>
                                     <th scope="col">@lang('School')</th>
-                                    <th scope="col">@lang('Subject')</th>
+                                    <th scope="col">@lang('Granting Institution')</th>
                                     <th scope="col">@lang('Start Date')</th>
                                     <th scope="col">@lang('End Date')</th>
                                     <th scope="col">@lang('Action')</th>
@@ -26,7 +26,7 @@
                                     <tr>
                                         <td data-label="@lang('Id')">{{$loop->iteration }}</td>
                                         <td data-label="@lang('School')">{{$education->school}}</td>
-                                        <td data-label="@lang('Subject')">{{$education->subject}}</td>
+                                        <td data-label="@lang('Granting Institution')">{{$education->subject}}</td>
                                         <td data-label="@lang('Start')">{{showDateTime($education->from_year, 'd M Y')}}</td>
                                         <td data-label="@lang('End')">{{showDateTime($education->to_year, 'd M Y')}}</td>
                                         <td data-label="@lang('Action')">
@@ -62,23 +62,23 @@
                 @csrf
                 <div class="modal-body">
                   <div class="form-group">
-                      <label for="school" class="form-control-label font-weight-bold">@lang('Academic Degree Name') </label>
-                      <input type="text" class="form-control" id="school" maxlength="150" name="school" value="{{old('school')}}" placeholder="@lang('Enter academic degree')" required>
+                      <label for="school" class="form-control-label font-weight-bold">@lang('Qualification') </label>
+                      <input type="text" class="form-control" id="school" maxlength="150" name="school" value="{{old('school')}}" placeholder="@lang('Enter degree, professional qualification, diploma or certificate')" required>
                   </div>
 
                   <div class="form-group">
-                      <label for="subject" class="form-control-label font-weight-bold">@lang('Subject')</label>
-                      <input type="text" class="form-control" id="subject" maxlength="250" name="subject" value="{{old('subject')}}" placeholder="@lang('Enter Subject')" required>
+                      <label for="subject" class="form-control-label font-weight-bold">@lang('Granting Institution')</label>
+                      <input type="text" class="form-control" id="subject" maxlength="250" name="subject" value="{{old('subject')}}" placeholder="@lang('Enter where you studied')" required>
                   </div>
 
                   <div class="row">
                       <div class="form-group col-lg-6">
                           <label for="from_year" class="form-control-label font-weight-bold">@lang('Start Date')</label>
-                          <input type="text" name="from_year" id="from_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('from_year') }}" placeholder="@lang('Select Start Year')" autocomplete="off">
+                          <input type="text" name="from_year" id="from_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('from_year') }}" placeholder="@lang('Select Date')" autocomplete="off">
                       </div>
                       <div class="form-group col-lg-6">
-                          <label for="to_year" class="form-control-label font-weight-bold">@lang('Graduation Year')</label>
-                          <input type="text" name="to_year" id="to_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('to_year') }}" placeholder="@lang('Select Graduation Year')" autocomplete="off">
+                          <label for="to_year" class="form-control-label font-weight-bold">@lang('Completion Date')</label>
+                          <input type="text" name="to_year" id="to_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('to_year') }}" placeholder="@lang('Select Date')" autocomplete="off">
                       </div>
                   </div>
                 </div>
@@ -109,23 +109,23 @@
                 <input type="hidden" name="id">
                 <div class="modal-body">
                   <div class="form-group">
-                      <label for="school" class="form-control-label font-weight-bold">@lang('Academic Degree Name')</label>
-                      <input type="text" class="form-control" id="school" maxlength="150" name="school" value="{{old('school')}}" placeholder="Enter School" required>
+                      <label for="school" class="form-control-label font-weight-bold">@lang('Qualification')</label>
+                      <input type="text" class="form-control" id="school" maxlength="150" name="school" value="{{old('school')}}" placeholder="Enter degree, professional qualification, diploma or certificate" required>
                   </div>
 
                   <div class="form-group">
-                      <label for="subject" class="form-control-label font-weight-bold">@lang('Subject')</label>
-                      <input type="text" class="form-control" id="subject" maxlength="250" name="subject" value="{{old('subject')}}" placeholder="Enter Subject" required>
+                      <label for="subject" class="form-control-label font-weight-bold">@lang('Granting Institution')</label>
+                      <input type="text" class="form-control" id="subject" maxlength="250" name="subject" value="{{old('subject')}}" placeholder="Enter where you studied" required>
                   </div>
 
                   <div class="row">
                       <div class="form-group col-lg-6">
                           <label for="from_year" class="form-control-label font-weight-bold">@lang('Start Date')</label>
-                          <input type="text" name="from_year" id="from_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('from_year') }}" placeholder="@lang('Select Start Year')" autocomplete="off" required>
+                          <input type="text" name="from_year" id="from_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('from_year') }}" placeholder="@lang('Select Date')" autocomplete="off" required>
                       </div>
                       <div class="form-group col-lg-6">
-                          <label for="to_year" class="form-control-label font-weight-bold">@lang('Graduation Year')</label>
-                         <input type="text" name="to_year" id="to_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('to_year') }}" placeholder="@lang('Select Start Year')" autocomplete="off" required>
+                          <label for="to_year" class="form-control-label font-weight-bold">@lang('Completion Date')</label>
+                         <input type="text" name="to_year" id="to_year" class="form-control datepicker-here" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ old('to_year') }}" placeholder="@lang('Select Date')" autocomplete="off" required>
 
                       </div>
                   </div>
