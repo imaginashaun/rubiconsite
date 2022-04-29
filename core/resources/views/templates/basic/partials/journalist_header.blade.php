@@ -76,7 +76,7 @@
 
                 <li class="menu_has_children">               <a style="background-color: transparent;padding: 5px;  border-color:#ff7300;
 
-" href="{{url('user.journalist.booking.pending')}}" class="btn text-white addVideoBtn mt-4 text-center"> @lang('Available Work')</a>
+" href="{{route('user.journalist.booking.pending')}}" class="btn text-white addVideoBtn mt-4 text-center"> @lang('Available Work')</a>
 
 
                 </li>
