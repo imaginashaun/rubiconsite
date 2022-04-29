@@ -14,20 +14,20 @@
                                 @csrf
 
                                 <div class="col-lg-12">
-                                    <label for="title">@lang('Title')</label>
+                                    <label for="title">@lang('Title Of Report')</label>
 
                                             <input type="text" name="title" id="title" placeholder="@lang('Title')" value="{{ old('budget') }}" class="form-control" required="">
 
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label for="delivery_date">@lang('Delivery Date')</label>
+                                    <label for="delivery_date">@lang('Date Due')</label>
                                     <input type="text" name="delivery_date" id="delivery_date" class="datepicker-here form-control" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ date('Y-m-d') }}" placeholder="@lang('Select Date')" autocomplete="off" required="">
                                 </div>
 
                                 <div class="col-lg-12 form-group">
-                                    <label for="budget" class="ml-3">@lang('What Budget do you accept')</label>
+                                    <label for="budget" class="ml-3">@lang('Amount of offer')</label>
                                     <div class="col-auto">
-                                        <label class="sr-only" for="inlineFormInputGroup">@lang('Username')</label>
+                                        <label class="sr-only" for="inlineFormInputGroup">@lang('Amount of offer')</label>
                                         <div class="input-group mb-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">{{ __($general->cur_text) }}</div>
@@ -53,8 +53,8 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-12 form-group">
-                                    <label for="description">@lang('Description')</label>
-                                    <textarea placeholder="@lang('Description')" name="description" id="description" class="form-control" required="">{{ old('description')}}</textarea>
+                                    <label for="description">@lang('Brief Description')</label>
+                                    <textarea placeholder="@lang('Brief Description')" name="description" id="description" class="form-control" required="">{{ old('description')}}</textarea>
                                 </div>
                                 <button type="submit" class="cmn-btn btn-block">@lang('Submit')</button>
                             </form>

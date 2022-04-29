@@ -190,13 +190,13 @@ $members=\App\User::all();
 
 
                     <div class="form-group">
-                        <label for="title" class="form-control-label font-weight-bold">@lang('Title') <span class="text-danger">*</span></label>
+                        <label for="title" class="form-control-label font-weight-bold">@lang('Title Of Report') <span class="text-danger">*</span></label>
 
                         {{--                        <div class="input-group-prepend">--}}
                         {{--                            <div class="input-group-text">{{ __($general->cur_text) }}</div>--}}
                         {{--                        </div>--}}
 
-                        <input type="text" class="form-control" id="title" maxlength="191" name="title" value="{{old('title')}}"required placeholder="@lang('Title')">
+                        <input type="text" class="form-control" id="title" maxlength="191" name="title" value="{{old('title')}}"required placeholder="@lang('Title Of Report')">
                     </div>
 
 
@@ -223,24 +223,24 @@ $members=\App\User::all();
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="form-control-label font-weight-bold">@lang('What is the Budget') ({{ __($general->cur_text) }}) <span class="text-danger">*</span></label>
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Amount Of Offer') ({{ __($general->cur_text) }}) <span class="text-danger">*</span></label>
 
 {{--                        <div class="input-group-prepend">--}}
 {{--                            <div class="input-group-text">{{ __($general->cur_text) }}</div>--}}
 {{--                        </div>--}}
 
-                        <input type="number" step=".1" min="1" class="form-control" id="name" maxlength="191" name="budget" value="{{old('budget')}}"required placeholder="@lang('Budget')">
+                        <input type="number" step=".1" min="1" class="form-control" id="name" maxlength="191" name="budget" value="{{old('budget')}}"required placeholder="@lang('Amount of Offer')">
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="form-control-label font-weight-bold">@lang('Delivery Date') <span class="text-danger">*</span></label>
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Date Due') <span class="text-danger">*</span></label>
                         <input type="date" name="delivery_date" id="delivery_date" class="datepicker-here form-control" data-language='en' data-date-format="yyyy-mm-dd" data-position='bottom left' value="{{ date('Y-m-d') }}" placeholder="@lang('Select Date')" autocomplete="off" required="">
 
 
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="form-control-label font-weight-bold">@lang('Description') <span class="text-danger">*</span></label>
+                        <label for="name" class="form-control-label font-weight-bold">@lang('Brief Description') <span class="text-danger">*</span></label>
 
                   <textarea name="description" required class="form-control"></textarea>
 

@@ -19,10 +19,10 @@
 {{--                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>--}}
 {{--                    </ul>--}}
 {{--                </li>--}}
-                <li class="menu_has_children"><a href="#0">@lang('Bookings')</a>
+                <li class="menu_has_children"><a>@lang('Projects')</a>
                     <ul class="sub-menu blueback">
                         <li><a href="{{ route('user.journalist.booking.list') }}">@lang('All Bookings')</a></li>
-                        <li><a href="{{ route('user.journalist.booking.pending') }}">@lang('Pending Booking')</a></li>
+                        <li><a href="{{ route('user.journalist.booking.pending') }}">@lang('Available Work')</a></li>
                         <li><a href="{{ route('user.journalist.booking.my_pending') }}">@lang('My Pending Booking Requests')</a></li>
                         <li><a href="{{ route('user.journalist.booking.inprogress') }}">@lang('In Progress Booking')</a></li>
                         <li><a href="{{ route('user.journalist.booking.delivered') }}">@lang('Delivered Booking')</a></li>
@@ -55,16 +55,27 @@
                     </ul>
                 </li>
 
-                <li class="menu_has_children">               <a style="background-color: #ff7300;padding: 3px;
-" href="#" class="btn text-white addVideoBtn mt-4 text-center"><i class="las la-plus"></i> @lang('Upload Work')</a>
-                    <ul class="sub-menu">
-                        <li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>
-                        <li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>
-                        <li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>
-                        <li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>
-                    </ul>
+                {{--<li class="menu_has_children">               <a style="background-color: #ff7300;padding: 3px;--}}
+{{--" href="#" class="btn text-white addVideoBtn mt-4 text-center"><i class="las la-plus"></i> @lang('Upload Work')</a>--}}
+                    {{--<ul class="sub-menu">--}}
+                        {{--<li><a href="{{route('user.video.work')}}">@lang('Video')</a></li>--}}
+                        {{--<li><a href="{{route('user.audio.work')}}">@lang('Audio')</a></li>--}}
+                        {{--<li><a href="{{route('user.image.work')}}">@lang('Image')</a></li>--}}
+                        {{--<li><a href="{{route('user.blog.work')}}">@lang('Blog')</a></li>--}}
+                    {{--</ul>--}}
 
-     </li>
+     {{--</li>--}}
+
+
+                <li class="menu_has_children">               <a style="background-color: transparent;padding: 3px;  border-color:white;
+
+" href="{{url('user/journalist/booking/create')}}" class="btn text-white addVideoBtn mt-4 text-center"> @lang('Pitch A Story')</a>
+
+
+                </li>
+
+                <li> <a style="color: #ff7300" href="{{route('user.journalist.booking.pending')}}">@lang('Available Work')</a></li>
+
 
             <!-- <li> <a href="{{route('ticket')}}">@lang('Get Support')</a></li>-->
             </ul>

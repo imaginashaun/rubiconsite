@@ -16,7 +16,7 @@
                             <div class="col-4 text-right">
                                 <div class="icon">
                                     <i class="las la-wallet"></i>
-                                </div>
+                                </div>Pending Projects
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="col-xl-4 col-md-6 mb-30">
                         <div class="d-widget-two d-flex flex-wrap align-items-center">
                             <div class="col-8">
-                                <span class="caption">@lang('Pending Work')</span>
+                                <span class="caption">@lang('Available Work')</span>
                                 <h4 class="currency-amount">{{$booking['pending']}}</h4>
                                 <a href="{{ route('user.journalist.booking.pending') }}" class="action-btn fs-12px mt-3">@lang('View All')</a>
                             </div>
